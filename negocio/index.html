@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abriendo negocio...</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #FF5722;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #FF5722;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .button {
+            display: inline-block;
+            background: #FF5722;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        .button:hover {
+            background: #E64A19;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,87,34,0.4);
+        }
+        .button.secondary {
+            background: #757575;
+        }
+        .button.secondary:hover {
+            background: #616161;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🏪</div>
+        <h1 id="title">Abriendo negocio...</h1>
+        <p id="message">Estamos abriendo el negocio en la app Tranqui</p>
+        
+        <div id="loader" class="loader"></div>
+        
+        <div id="actions" class="hidden">
+            <a href="#" id="openApp" class="button">Abrir en la App</a>
+            <a href="#" id="openWeb" class="button secondary">Ver en Web</a>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el ID del negocio de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const negocioId = urlParams.get('id');
+        
+        if (!negocioId) {
+            document.getElementById('title').textContent = 'Error';
+            document.getElementById('message').textContent = 'No se especificó ningún negocio';
+            document.getElementById('loader').classList.add('hidden');
+            return;
+        }
+        
+        // URLs
+        const webUrl = `https://fatestudiosgame.github.io/tranqui-web/#/negocio/${negocioId}`;
+        const appIntent = `intent://negocio/${negocioId}#Intent;scheme=tranqui;package=com.fatestudiosgame.tranqui;end`;
+        
+        // Detectar dispositivo
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        
+        // Tiempo de espera para ver si la app se abrió
+        let appOpened = false;
+        
+        if (isAndroid) {
+            // Intentar abrir la app
+            const startTime = Date.now();
+            
+            // Crear iframe invisible para intentar el intent
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = appIntent;
+            document.body.appendChild(iframe);
+            
+            // Después de 2 segundos, si la app no se abrió, mostrar opciones
+            setTimeout(() => {
+                const elapsed = Date.now() - startTime;
+                // Si el usuario sigue en la página (no se fue a la app)
+                if (elapsed < 2500 && !document.hidden) {
+                    showFallback();
+                }
+            }, 2000);
+            
+        } else if (isIOS) {
+            // iOS no soporta intents personalizados fácilmente
+            showFallback();
+        } else {
+            // Desktop u otros
+            showFallback();
+        }
+        
+        function showFallback() {
+            document.getElementById('loader').classList.add('hidden');
+            document.getElementById('actions').classList.remove('hidden');
+            document.getElementById('title').textContent = '¿Cómo quieres verlo?';
+            document.getElementById('message').textContent = 'Elige si quieres abrir la app o ver el negocio en la web';
+            
+            document.getElementById('openApp').href = appIntent;
+            document.getElementById('openWeb').href = webUrl;
+        }
+        
+        // Si la página pierde el foco, probablemente la app se abrió
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                appOpened = true;
+            }
+        });
+    </script>
+</body>
+</html>
