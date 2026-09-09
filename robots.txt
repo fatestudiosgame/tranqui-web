@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fatestudiosgame.github.io/tranqui-web/sitemap.xml
