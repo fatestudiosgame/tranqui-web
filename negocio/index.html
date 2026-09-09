@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abriendo negocio...</title>
+    <title>Abriendo negocio... | Tranqui</title>
+    <meta name="description" content="Mira este negocio en Tranqui, el mapa de negocios que aceptan transferencias en Cuba">
+    <meta property="og:title" content="Negocio en Tranqui">
+    <meta property="og:description" content="Mira este negocio en Tranqui">
+    <meta property="og:type" content="website">
     <style>
         * {
             margin: 0;
@@ -85,9 +89,9 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">🏪</div>
+        <div class="logo">??</div>
         <h1 id="title">Abriendo negocio...</h1>
-        <p id="message">Estamos abriendo el negocio en la app Tranqui</p>
+        <p id="message">Estamos abriendo el negocio en Tranqui</p>
         
         <div id="loader" class="loader"></div>
         
@@ -98,71 +102,61 @@
     </div>
 
     <script>
-        // Obtener el ID del negocio de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const negocioId = urlParams.get('id');
-        
-        if (!negocioId) {
-            document.getElementById('title').textContent = 'Error';
-            document.getElementById('message').textContent = 'No se especificó ningún negocio';
-            document.getElementById('loader').classList.add('hidden');
-            return;
-        }
-        
-        // URLs
-        const webUrl = `https://fatestudiosgame.github.io/tranqui-web/#/negocio/${negocioId}`;
-        const appIntent = `intent://negocio/${negocioId}#Intent;scheme=tranqui;package=com.fatestudiosgame.tranqui;end`;
-        
-        // Detectar dispositivo
-        const isAndroid = /Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        
-        // Tiempo de espera para ver si la app se abrió
-        let appOpened = false;
-        
-        if (isAndroid) {
-            // Intentar abrir la app
-            const startTime = Date.now();
+        // ? Envolver todo en una función para poder usar return
+        (function() {
+            // Obtener el ID del negocio de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const negocioId = urlParams.get('id');
             
-            // Crear iframe invisible para intentar el intent
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = appIntent;
-            document.body.appendChild(iframe);
-            
-            // Después de 2 segundos, si la app no se abrió, mostrar opciones
-            setTimeout(() => {
-                const elapsed = Date.now() - startTime;
-                // Si el usuario sigue en la página (no se fue a la app)
-                if (elapsed < 2500 && !document.hidden) {
-                    showFallback();
-                }
-            }, 2000);
-            
-        } else if (isIOS) {
-            // iOS no soporta intents personalizados fácilmente
-            showFallback();
-        } else {
-            // Desktop u otros
-            showFallback();
-        }
-        
-        function showFallback() {
-            document.getElementById('loader').classList.add('hidden');
-            document.getElementById('actions').classList.remove('hidden');
-            document.getElementById('title').textContent = '¿Cómo quieres verlo?';
-            document.getElementById('message').textContent = 'Elige si quieres abrir la app o ver el negocio en la web';
-            
-            document.getElementById('openApp').href = appIntent;
-            document.getElementById('openWeb').href = webUrl;
-        }
-        
-        // Si la página pierde el foco, probablemente la app se abrió
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                appOpened = true;
+            if (!negocioId) {
+                document.getElementById('title').textContent = 'Error';
+                document.getElementById('message').textContent = 'No se especificó ningún negocio';
+                document.getElementById('loader').classList.add('hidden');
+                return;
             }
-        });
+            
+            // URLs
+            const webUrl = `https://fatestudiosgame.github.io/tranqui-web/#/negocio/${negocioId}`;
+            const appIntent = `intent://negocio/${negocioId}#Intent;scheme=tranqui;package=com.fatestudiosgame.tranqui;end`;
+            
+            // Detectar dispositivo
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            
+            if (isAndroid) {
+                // Intentar abrir la app
+                const startTime = Date.now();
+                
+                // Crear iframe invisible para intentar el intent
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = appIntent;
+                document.body.appendChild(iframe);
+                
+                // Después de 2 segundos, si la app no se abrió, mostrar opciones
+                setTimeout(function() {
+                    const elapsed = Date.now() - startTime;
+                    if (elapsed < 2500 && !document.hidden) {
+                        showFallback();
+                    }
+                }, 2000);
+                
+            } else if (isIOS) {
+                showFallback();
+            } else {
+                showFallback();
+            }
+            
+            function showFallback() {
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('actions').classList.remove('hidden');
+                document.getElementById('title').textContent = '¿Cómo quieres verlo?';
+                document.getElementById('message').textContent = 'Elige si quieres abrir la app o ver el negocio en la web';
+                
+                document.getElementById('openApp').href = appIntent;
+                document.getElementById('openWeb').href = webUrl;
+            }
+        })();
     </script>
 </body>
 </html>
