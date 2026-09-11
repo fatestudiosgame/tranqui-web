@@ -2,40 +2,256 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Fatestudiosgame | Tranqui</title>
 <meta name="description" content="Consigue los mejores videojuegos a los mejores precios de la Habana">
+<meta name="theme-color" content="#FF5722">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tranqui">
 <meta property="og:title" content="Fatestudiosgame">
 <meta property="og:description" content="Consigue los mejores videojuegos a los mejores precios de la Habana">
 <meta property="og:url" content="https://fatestudiosgame.github.io/tranqui-web/p/VPohowSRbLj8MqljQumf/">
-<meta property="og:image" content="https://fatestudiosgame.github.io/tranqui-web/og-image.png">
+<meta property="og:image" content="https://res.cloudinary.com/mucmrgi3/image/upload/v1789113603/tranqui/negocios/VPohowSRbLj8MqljQumf/galeria/zygervfybzjxukik4vqr.jpg?w=800&amp;q=75&amp;f=auto">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fatestudiosgame">
 <meta name="twitter:description" content="Consigue los mejores videojuegos a los mejores precios de la Habana">
-<meta name="twitter:image" content="https://fatestudiosgame.github.io/tranqui-web/og-image.png">
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:linear-gradient(135deg,#FF9800,#FF5722);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}.box{background:#fff;border-radius:20px;padding:40px;max-width:480px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}.logo{font-size:48px;margin-bottom:16px}h1{color:#FF5722;font-size:22px;margin-bottom:8px}p{color:#666;margin-bottom:24px}.loader{border:4px solid #f3f3f3;border-top:4px solid #FF5722;border-radius:50%;width:36px;height:36px;animation:spin 1s linear infinite;margin:0 auto 20px}@keyframes spin{to{transform:rotate(360deg)}}a{color:#FF5722;font-weight:bold}</style>
+<meta name="twitter:image" content="https://res.cloudinary.com/mucmrgi3/image/upload/v1789113603/tranqui/negocios/VPohowSRbLj8MqljQumf/galeria/zygervfybzjxukik4vqr.jpg?w=800&amp;q=75&amp;f=auto">
+<link rel="canonical" href="https://fatestudiosgame.github.io/tranqui-web/p/VPohowSRbLj8MqljQumf/">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --primary:#FF5722;--primary-dark:#E64A19;
+  --bg:#fafafa;--card:#fff;--text:#1a1a1a;--muted:#666;--border:#eee;
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#121212;--card:#1e1e1e;--text:#f0f0f0;--muted:#aaa;--border:#2a2a2a}
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.5;
+  -webkit-font-smoothing:antialiased;padding-bottom:80px;
+}
+.header{
+  background:linear-gradient(135deg,#FF9800,#FF5722);
+  padding:32px 20px 24px;color:#fff;text-align:center;
+}
+.header-inner{max-width:600px;margin:0 auto}
+.avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(255,255,255,.2);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  font-size:40px;margin:0 auto 12px;border:3px solid rgba(255,255,255,.3);
+  overflow:hidden;
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.badge-vip{
+  display:inline-block;padding:4px 12px;border-radius:12px;
+  font-size:11px;font-weight:700;letter-spacing:.5px;
+  background:#9C27B0;color:#fff;border:1px solid #6A1B9A;
+  margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.nombre{font-size:24px;font-weight:800;margin-bottom:4px}
+.categoria{font-size:13px;opacity:.9}
+.container{max-width:600px;margin:0 auto;padding:0 16px}
+section{margin:24px 0}
+h2{font-size:18px;margin-bottom:12px;color:var(--primary);font-weight:700}
+h3{font-size:14px;margin:16px 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+.card{
+  background:var(--card);border-radius:14px;padding:16px;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid var(--border);
+}
+.descripcion{white-space:pre-line;font-size:15px;line-height:1.6}
+.galeria-scroll{
+  display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.galeria-scroll::-webkit-scrollbar{display:none}
+.galeria-scroll img{
+  flex:0 0 240px;height:240px;object-fit:cover;border-radius:12px;
+  scroll-snap-align:start;background:#eee;
+}
+.horario{display:flex;align-items:center;gap:8px;font-size:14px}
+.horario-icon{font-size:20px}
+.acciones{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;
+}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px;border-radius:12px;text-decoration:none;
+  font-weight:600;font-size:15px;border:none;cursor:pointer;
+  transition:transform .1s, box-shadow .2s;
+}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-tel{background:var(--primary);color:#fff}
+.btn-app{background:var(--card);color:var(--primary);border:2px solid var(--primary);grid-column:1/-1}
+.btn-share{background:var(--card);color:var(--text);border:1px solid var(--border);grid-column:1/-1}
+.productos{display:flex;flex-direction:column;gap:10px}
+.producto{
+  display:flex;gap:12px;background:var(--card);border-radius:12px;
+  padding:10px;border:1px solid var(--border);position:relative;
+}
+.producto.agotado{opacity:.6}
+.prod-img{
+  flex:0 0 80px;width:80px;height:80px;border-radius:8px;
+  overflow:hidden;background:#eee;display:flex;align-items:center;justify-content:center;
+}
+.prod-img img{width:100%;height:100%;object-fit:cover}
+.no-img{font-size:28px;color:#ccc}
+.prod-info{flex:1;min-width:0}
+.prod-nombre{font-weight:600;font-size:14px;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis}
+.prod-desc{font-size:12px;color:var(--muted);margin-bottom:6px;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.prod-precio{font-weight:700;color:var(--primary);font-size:14px}
+.badge-agotado{
+  position:absolute;top:8px;right:8px;background:#e74c3c;color:#fff;
+  font-size:10px;padding:2px 8px;border-radius:8px;font-weight:700;
+}
+.fab{
+  position:fixed;bottom:20px;right:20px;width:60px;height:60px;
+  border-radius:50%;background:#25D366;color:#fff;font-size:28px;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,.5);
+  z-index:100;transition:transform .2s;
+}
+.fab:active{transform:scale(.92)}
+.footer{
+  text-align:center;padding:32px 16px;color:var(--muted);font-size:12px;
+}
+.footer a{color:var(--primary);text-decoration:none;font-weight:600}
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);
+  background:#333;color:#fff;padding:12px 20px;border-radius:24px;
+  font-size:14px;opacity:0;transition:all .3s;z-index:200;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:400px){
+  .acciones{grid-template-columns:1fr}
+  .galeria-scroll img{flex:0 0 200px;height:200px}
+}
+</style>
 </head>
 <body>
-<div class="box">
-<div class="logo">&#127978;</div>
-<h1>Fatestudiosgame</h1>
-<p>Abriendo la pagina del negocio...</p>
-<div class="loader"></div>
-<a href="https://fatestudiosgame.github.io/tranqui-web/#/p/VPohowSRbLj8MqljQumf">Ver en la web</a>
-</div>
+<header class="header">
+  <div class="header-inner">
+    <div class="avatar"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1789113603/tranqui/negocios/VPohowSRbLj8MqljQumf/galeria/zygervfybzjxukik4vqr.jpg?w=800&amp;q=75&amp;f=auto" alt="Fatestudiosgame"></div>
+    <span class="badge-vip">VIP PRUEBA</span>
+    <h1 class="nombre">Fatestudiosgame</h1>
+    <div class="categoria">sala juegos</div>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="card">
+    <div class="descripcion">Consigue los mejores videojuegos a los mejores precios de la Habana</div>
+  </section>
+
+  
+
+  <section class="galeria"><h2>📸 Fotos</h2><div class="galeria-scroll"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1789113603/tranqui/negocios/VPohowSRbLj8MqljQumf/galeria/zygervfybzjxukik4vqr.jpg?w=800&amp;q=75&amp;f=auto" alt="Foto 1" loading="eager"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1789118226/tranqui/negocios/VPohowSRbLj8MqljQumf/galeria/wspdhqpbzvrcbhjureg6.jpg?w=800&amp;q=75&amp;f=auto" alt="Foto 2" loading="lazy"></div></section>
+
+  <div class="acciones">
+    <a class="btn btn-wa" href="https://wa.me/53906342?text=Hola%2C%20vi%20tu%20negocio%20en%20Tranqui%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="btn btn-tel" href="tel:53906342">📞 Llamar</a>
+    <a class="btn btn-app" href="tranqui://negocio/VPohowSRbLj8MqljQumf" id="btnApp">📱 Abrir en Tranqui</a>
+    <button class="btn btn-share" id="btnShare">🔗 Compartir</button>
+  </div>
+
+  <section class="catalogo"><h2>📋 Catálogo</h2><div class="cat-group"><h3>Libros</h3><div class="productos">
+        <div class="producto ">
+          <div class="prod-img"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1789114592/tranqui/negocios/VPohowSRbLj8MqljQumf/catalogo/e2kthqbs2u6ocwsfijch.jpg?w=800&amp;q=75&amp;f=auto" alt="Libro" loading="lazy"></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Libro</div>
+            <div class="prod-desc">Libro de Cunetos</div>
+            <div class="prod-precio">10 USD</div>
+            
+          </div>
+        </div></div></div><div class="cat-group"><h3>Videojuegos</h3><div class="productos">
+        <div class="producto ">
+          <div class="prod-img"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1789115681/tranqui/negocios/VPohowSRbLj8MqljQumf/catalogo/s75pp9oxaad5gthdduca.jpg?w=800&amp;q=75&amp;f=auto" alt="Mafia 2" loading="lazy"></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Mafia 2</div>
+            <div class="prod-desc">Juego de PS3</div>
+            <div class="prod-precio">2,000 CUP</div>
+            
+          </div>
+        </div></div></div><div class="cat-group"><h3>Fotografía</h3><div class="productos">
+        <div class="producto ">
+          <div class="prod-img"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1789115611/tranqui/negocios/VPohowSRbLj8MqljQumf/catalogo/jtnlhj19ih8dzxatwodq.jpg?w=800&amp;q=75&amp;f=auto" alt="Trípode" loading="lazy"></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Trípode</div>
+            <div class="prod-desc">para fotos</div>
+            <div class="prod-precio">4,500 CUP</div>
+            
+          </div>
+        </div></div></div></section>
+
+</main>
+
+<footer class="footer">
+  <p>Este negocio está en <a href="https://fatestudiosgame.github.io/tranqui-web" target="_blank" rel="noopener">Tranqui</a></p>
+  <p>La app donde aceptan transferencia sin ponerte cara rara 😉</p>
+</footer>
+
+<a class="fab" href="https://wa.me/53906342?text=Hola%2C%20vi%20tu%20negocio%20en%20Tranqui%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<div class="toast" id="toast">Link copiado</div>
+
 <script>
 (function(){
-var app='tranqui://p/VPohowSRbLj8MqljQumf';
-var web='https://fatestudiosgame.github.io/tranqui-web/#/p/VPohowSRbLj8MqljQumf';
-if(/Android/i.test(navigator.userAgent)){
-var f=document.createElement('iframe');f.style.display='none';f.src=app;document.body.appendChild(f);
-setTimeout(function(){if(!document.hidden){location.replace(web);}},1500);
-}else{location.replace(web);}
+  // Deep link: intentar abrir app nativa en Android
+  if(/Android/i.test(navigator.userAgent)){
+    var start = Date.now();
+    var f = document.createElement('iframe');
+    f.style.display = 'none';
+    f.src = 'tranqui://negocio/VPohowSRbLj8MqljQumf';
+    document.body.appendChild(f);
+    setTimeout(function(){
+      if(Date.now() - start < 2000 && !document.hidden){
+        // Si la app no abrió, quitar el iframe silenciosamente
+        f.remove();
+      }
+    }, 1500);
+  }
+
+  // Compartir
+  var btnShare = document.getElementById('btnShare');
+  var toast = document.getElementById('toast');
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2000);
+  }
+  btnShare.addEventListener('click', function(){
+    var data = {
+      title: 'Fatestudiosgame',
+      text: 'Mira Fatestudiosgame en Tranqui',
+      url: location.href
+    };
+    if(navigator.share){
+      navigator.share(data).catch(function(){});
+    } else if(navigator.clipboard){
+      navigator.clipboard.writeText(location.href).then(function(){
+        showToast('📋 Link copiado');
+      });
+    } else {
+      showToast(location.href);
+    }
+  });
+
+  // Botón app: fallback si no abre
+  var btnApp = document.getElementById('btnApp');
+  btnApp.addEventListener('click', function(e){
+    if(!/Android|iPhone|iPad/i.test(navigator.userAgent)){
+      e.preventDefault();
+      location.href = 'https://fatestudiosgame.github.io/tranqui-web/#/p/VPohowSRbLj8MqljQumf';
+    }
+  });
 })();
 </script>
 </body>
