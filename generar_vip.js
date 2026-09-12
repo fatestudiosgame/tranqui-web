@@ -1,4 +1,4 @@
-// generar_vip.js — VERSIÓN UNIFICADA (sin botón Abrir en Tranqui)
+// generar_vip.js — VERSIÓN CON PARCHE EN VIVO
 // Genera páginas HTML estáticas por cada negocio VIP:
 //   - Buscador sticky con contador y resultados planos
 //   - Catálogo colapsable por categorías (tap para abrir/cerrar)
@@ -10,6 +10,7 @@
 //   - Banner "VIP EXPIRADO" inteligente
 //   - JSON-LD (schema.org LocalBusiness)
 //   - Directorio /p/ y sitemap.xml
+//   - ⭐ PARCHE EN VIVO: actualiza datos desde API al abrir la página
 // Uso:  node generar_vip.js   (requiere Node 18+)
 const fs = require('fs');
 const path = require('path');
@@ -434,6 +435,8 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:210;padding:16px}
 .lightbox.open{display:flex}
 .lightbox img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:8px}
+.live-indicator{position:fixed;top:12px;right:12px;background:rgba(255,152,0,.9);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:600;z-index:300;opacity:0;transition:opacity .3s;pointer-events:none}
+.live-indicator.show{opacity:1}
 @media(max-width:400px){.galeria-scroll img{flex:0 0 200px;height:200px}}
 </style>
 </head>
@@ -441,28 +444,28 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 <header class="header">
   <div class="header-inner">
     ${n.fotos && n.fotos.length > 0
-      ? `<div class="avatar"><img src="${esc(optimizarCloudinary(n.fotos[0]))}" alt="${nombre}"></div>`
-      : `<div class="avatar">🏪</div>`}
-    <div>${badgeHtml}</div>
-    <h1 class="nombre">${nombre}</h1>
-    ${categoria ? `<span class="cat-chip">🏷️ ${categoria}</span>` : ''}
+      ? `<div class="avatar" id="live-avatar"><img src="${esc(optimizarCloudinary(n.fotos[0]))}" alt="${nombre}"></div>`
+      : `<div class="avatar" id="live-avatar">🏪</div>`}
+    <div id="live-badge">${badgeHtml}</div>
+    <h1 class="nombre" id="live-nombre">${nombre}</h1>
+    ${categoria ? `<span class="cat-chip" id="live-categoria">🏷️ ${categoria}</span>` : '<span class="cat-chip" id="live-categoria" style="display:none"></span>'}
   </div>
 </header>
 
 <main class="container">
-  ${expirado ? bannerExpirado() : ''}
-  <section class="card"><div class="descripcion">${desc}</div></section>
-  ${horario ? `
+  <div id="live-banner">${expirado ? bannerExpirado() : ''}</div>
+  <section class="card"><div class="descripcion" id="live-descripcion">${desc}</div></section>
+  <div id="live-horario-wrap">${horario ? `
   <section class="card">
-    <div class="horario"><span class="horario-icon">🕐</span><span>${horario}</span></div>
-  </section>` : ''}
-  ${renderGaleria(n.fotos)}
+    <div class="horario"><span class="horario-icon">🕐</span><span id="live-horario">${horario}</span></div>
+  </section>` : ''}</div>
+  <div id="live-galeria">${renderGaleria(n.fotos)}</div>
 
   <div class="acciones">
     <button type="button" class="btn btn-share" id="btnShare">🔗 Compartir este negocio</button>
   </div>
 
-  ${hayProductos ? `
+  <div id="live-catalogo-wrap">${hayProductos ? `
     <div class="searchbar">
       <span class="sicon">🔍</span>
       <input id="searchInput" type="search" placeholder="Buscar producto... (ej: leche, café)" autocomplete="off" aria-label="Buscar producto">
@@ -471,11 +474,11 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
     <div class="searchcount" id="searchCount" style="display:none"></div>
     <div id="searchResults" style="display:none"></div>
     ${renderCatalogo(catalogo, carritoActivo)}
-  ` : ''}
+  ` : ''}</div>
 </main>
 
 <footer class="footer">
-  <p>Este negocio ${expirado ? 'estuvo' : 'está'} en <a href="${BASE_URL}" target="_blank" rel="noopener">Tranqui</a></p>
+  <p>Este negocio <span id="live-estado">${expirado ? 'estuvo' : 'está'}</span> en <a href="${BASE_URL}" target="_blank" rel="noopener">Tranqui</a></p>
   <p><a href="${BASE_URL}/p/">Ver todos los negocios VIP</a></p>
 </footer>
 
@@ -507,6 +510,7 @@ ${carritoActivo ? `
 
 <div class="toast" id="toast"></div>
 <div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt="Foto ampliada"></div>
+<div class="live-indicator" id="liveIndicator">🔄 Actualizando datos...</div>
 
 <script>
 (function(){
@@ -758,7 +762,7 @@ ${carritoActivo ? `
     }
     lines.push('');
     lines.push('_Pedido enviado desde Tranqui_');
-    return lines.join('\\n');
+    return lines.join('\\\\n');
   }
 
   function enviarPedido(){
@@ -831,6 +835,125 @@ ${carritoActivo ? `
   });
 
   renderCart();
+
+  /* ================================================================
+     ⭐ PARCHE EN VIVO: Actualiza datos desde API al cargar la página
+     ================================================================ */
+  (function(){
+    var indicator = document.getElementById('liveIndicator');
+    var timeoutId = setTimeout(function(){
+      indicator.classList.add('show');
+    }, 2000);
+
+    fetch('${API_URL}/' + ID, { cache: 'no-cache' })
+      .then(function(r){ return r.json(); })
+      .then(function(json){
+        clearTimeout(timeoutId);
+        indicator.classList.remove('show');
+        if (!json.success || !json.data) return;
+        var n = json.data;
+
+        // Actualizar nombre
+        var elNombre = document.getElementById('live-nombre');
+        if (elNombre && n.nombre) elNombre.textContent = n.nombre;
+
+        // Actualizar descripción
+        var elDesc = document.getElementById('live-descripcion');
+        if (elDesc) {
+          var descViva = n.descripcionVip || n.descripcion || '';
+          if (descViva) elDesc.textContent = descViva;
+        }
+
+        // Actualizar horario
+        var elHorario = document.getElementById('live-horario');
+        if (elHorario && n.horario) {
+          elHorario.textContent = n.horario;
+          var wrap = document.getElementById('live-horario-wrap');
+          if (wrap) wrap.style.display = '';
+        }
+
+        // Actualizar categoría
+        var elCat = document.getElementById('live-categoria');
+        if (elCat && n.categoriaPrincipal) {
+          elCat.textContent = '🏷️ ' + String(n.categoriaPrincipal).replace(/_/g, ' ');
+          elCat.style.display = '';
+        }
+
+        // Actualizar badge VIP
+        var elBadge = document.getElementById('live-badge');
+        if (elBadge) {
+          var tipo = (n.tipoVip || '').toLowerCase();
+          var bg, fg, border, label;
+          if (tipo.includes('oro')) { bg = '#FFD700'; fg = '#1a1a1a'; border = '#b8860b'; label = 'VIP ORO'; }
+          else if (tipo.includes('plata')) { bg = '#C0C0C0'; fg = '#1a1a1a'; border = '#707070'; label = 'VIP PLATA'; }
+          else if (tipo.includes('bronce')) { bg = '#CD7F32'; fg = '#fff'; border = '#8b4513'; label = 'VIP BRONCE'; }
+          else if (tipo.includes('prueba')) { bg = '#9C27B0'; fg = '#fff'; border = '#6A1B9A'; label = 'VIP PRUEBA'; }
+          else { bg = '#FF9800'; fg = '#fff'; border = '#E65100'; label = 'VIP'; }
+
+          var expirado = false;
+          if (n.vipHasta) {
+            var vipMs = n.vipHasta._seconds ? n.vipHasta._seconds * 1000 : new Date(n.vipHasta).getTime();
+            expirado = vipMs < Date.now();
+          }
+
+          if (expirado) {
+            elBadge.innerHTML = '<span class="badge-vip" style="background:#888;color:#fff;border-color:#555">VIP EXPIRADO</span>';
+          } else {
+            elBadge.innerHTML = '<span class="badge-vip" style="background:' + bg + ';color:' + fg + ';border:1px solid ' + border + '">' + label + '</span>';
+          }
+
+          // Actualizar estado en footer
+          var elEstado = document.getElementById('live-estado');
+          if (elEstado) elEstado.textContent = expirado ? 'estuvo' : 'está';
+
+          // Actualizar banner expirado
+          var elBanner = document.getElementById('live-banner');
+          if (elBanner) {
+            if (expirado) {
+              elBanner.innerHTML = '<div class="expirado-banner"><span class="expirado-icon">⚠️</span><div><strong>Este negocio ya no es VIP activo</strong><div class="expirado-sub">Su información permanece disponible como referencia.</div></div></div>';
+            } else {
+              elBanner.innerHTML = '';
+            }
+          }
+        }
+
+        // Actualizar avatar (primera foto)
+        var elAvatar = document.getElementById('live-avatar');
+        if (elAvatar && n.fotos && n.fotos.length > 0) {
+          var fotoUrl = n.fotos[0];
+          if (fotoUrl.includes('cloudinary.com') && !fotoUrl.includes('?')) {
+            fotoUrl += '?w=800&q=75&f=auto';
+          }
+          elAvatar.innerHTML = '<img src="' + fotoUrl + '" alt="' + escJs(n.nombre || '') + '">';
+        }
+
+        // Actualizar galería de fotos
+        var elGaleria = document.getElementById('live-galeria');
+        if (elGaleria && n.fotos && n.fotos.length > 0) {
+          var imgs = n.fotos.slice(0, 10).map(function(f, i){
+            var url = f;
+            if (url.includes('cloudinary.com') && !url.includes('?')) {
+              url += '?w=800&q=75&f=auto';
+            }
+            return '<img src="' + url + '" alt="Foto ' + (i + 1) + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '">';
+          }).join('');
+          elGaleria.innerHTML = '<section><h2>📸 Fotos</h2><div class="galeria-scroll">' + imgs + '</div></section>';
+
+          // Re-agregar event listeners de lightbox
+          elGaleria.querySelectorAll('.galeria-scroll img').forEach(function(im){
+            im.addEventListener('click', function(){
+              document.getElementById('lightboxImg').src = im.src;
+              document.getElementById('lightbox').classList.add('open');
+            });
+          });
+        }
+      })
+      .catch(function(e){
+        clearTimeout(timeoutId);
+        indicator.classList.remove('show');
+        console.log('⚠️ No se pudo actualizar datos en vivo:', e.message);
+      });
+  })();
 })();
 </script>
 </body>
