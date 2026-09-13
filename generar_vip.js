@@ -799,7 +799,7 @@ ${carritoActivo ? `
     }
     lines.push('');
     lines.push('_Pedido enviado desde Tranqui_');
-    return lines.join('\\\\n');
+    return lines.join('\\n');
   }
 
   function enviarPedido(){
