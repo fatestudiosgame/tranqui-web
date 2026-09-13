@@ -1,10 +1,11 @@
-// generar_vip.js — VERSIÓN CON PARCHE EN VIVO
+// generar_vip.js — VERSIÓN CON PARCHE EN VIVO + FIX MULTI-MONEDA
 // Genera páginas HTML estáticas por cada negocio VIP:
 //   - Buscador sticky con contador y resultados planos
 //   - Catálogo colapsable por categorías (tap para abrir/cerrar)
 //   - Favicon de marca (tiendita naranja)
 //   - Lightbox de fotos (tap para ampliar)
 //   - Carrito con localStorage persistente (aislado por negocio)
+//   - ⭐ FIX: Totales agrupados por moneda (CUP + USD separados)
 //   - SMS como fallback si no hay WhatsApp
 //   - Toast notifications
 //   - Banner "VIP EXPIRADO" inteligente
@@ -288,7 +289,6 @@ function plantilla(n, catalogo, expirado) {
   const ldJson = jsonLdNegocio(n, url, img, catalogo);
   const pmap = productMap(catalogo);
 
-  // Carrito activo solo si VIP vigente Y hay productos Y hay número de contacto
   const hayProductos = Object.values(catalogo).some(arr => arr && arr.length > 0);
   const carritoActivo = !expirado && hayProductos && !!contactoNumero;
   const fabCartBottom = contactoNumero ? '92px' : '20px';
@@ -345,7 +345,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;border-radius:14px;text-decoration:none;font-weight:700;font-size:15px;border:none;cursor:pointer;transition:transform .1s,box-shadow .2s;flex:1}
 .btn:active{transform:scale(.97)}
 .btn-share{background:var(--card);color:var(--text);border:1px solid var(--border);box-shadow:var(--shadow)}
-/* Buscador */
 .searchbar{position:sticky;top:8px;z-index:40;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #eee;border-radius:999px;padding:11px 16px;box-shadow:0 4px 16px rgba(0,0,0,.10);margin-bottom:12px}
 .searchbar input{flex:1;border:none;outline:none;font-size:14px;font-family:inherit;background:transparent;color:var(--text)}
 .searchbar input::placeholder{color:#aaa}
@@ -355,7 +354,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 .noresults{text-align:center;color:#888;padding:36px 16px;background:#fff;border-radius:12px;box-shadow:var(--shadow);font-size:15px;font-weight:600}
 .noresults span{display:block;font-size:12px;color:#aaa;font-weight:400;margin-top:6px}
 .rcat{display:inline-block;font-size:10px;background:#FFF3E0;color:#E65100;border-radius:999px;padding:2px 8px;font-weight:700;margin-bottom:4px}
-/* Categorías colapsables */
 .cat{background:#fff;border-radius:12px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden;border:1px solid var(--border)}
 .cat-header{width:100%;display:flex;align-items:center;gap:8px;padding:14px 16px;background:linear-gradient(135deg,#FF9800,#FF5722);border:none;cursor:pointer;text-align:left}
 .cat-name{flex:1;color:#fff;font-weight:800;font-size:15px;letter-spacing:.5px;text-transform:uppercase}
@@ -364,7 +362,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 .cat.closed .cat-arrow{transform:rotate(-90deg)}
 .cat-body{padding:12px;display:flex;flex-direction:column;gap:10px}
 .cat.closed .cat-body{display:none}
-/* Productos */
 .producto{display:flex;gap:12px;background:var(--card);border-radius:14px;padding:10px;border:1px solid var(--border);box-shadow:var(--shadow);position:relative}
 .producto.agotado{opacity:.55}
 .prod-img{flex:0 0 84px;width:84px;height:84px;border-radius:12px;overflow:hidden;background:#f2f2f2;display:flex;align-items:center;justify-content:center;cursor:pointer}
@@ -383,17 +380,14 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 .stepper{display:flex;align-items:center;gap:6px;background:rgba(255,87,34,.12);border-radius:999px;padding:2px 6px}
 .sbtn{background:none;border:none;color:var(--primary);font-size:18px;font-weight:800;cursor:pointer;padding:4px 6px}
 .sqty{font-weight:800;color:var(--primary);min-width:16px;text-align:center}
-/* FAB WhatsApp */
 .fab{position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.45);z-index:100;transition:transform .2s}
 .fab:active{transform:scale(.92)}
-/* FAB Carrito */
 .fab-cart{position:fixed;bottom:${fabCartBottom};right:20px;width:60px;height:60px;border-radius:50%;background:var(--primary);color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;text-decoration:none;border:none;box-shadow:0 8px 24px rgba(255,87,34,.45);z-index:100;transition:transform .2s;cursor:pointer}
 .fab-cart:active{transform:scale(.92)}
 .fab-cart.hidden{display:none}
 .fab-cart .cart-badge{position:absolute;top:-4px;right:-4px;background:#fff;color:var(--primary);font-size:12px;font-weight:800;min-width:22px;height:22px;border-radius:11px;display:flex;align-items:center;justify-content:center;padding:0 6px;border:2px solid var(--primary);box-shadow:0 2px 6px rgba(0,0,0,.2)}
 .fab-cart .cart-badge.pop{animation:popBadge .3s ease}
 @keyframes popBadge{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
-/* Cart drawer */
 .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:150}
 .cart-overlay.open{opacity:1;pointer-events:auto}
 .cart-drawer{position:fixed;top:0;right:0;bottom:0;width:100%;max-width:400px;background:#fff;z-index:160;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;box-shadow:-8px 0 32px rgba(0,0,0,.15)}
@@ -417,9 +411,13 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 .cart-footer{padding:16px;border-top:1px solid var(--border);background:#fafafa}
 .cart-notes{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;resize:none;margin-bottom:12px}
 .cart-notes:focus{outline:2px solid var(--primary);outline-offset:-1px}
-.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:16px}
+.cart-total{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;font-size:15px}
 .cart-total-label{font-weight:600;color:var(--muted)}
-.cart-total-amount{font-weight:800;font-size:20px;color:#E65100}
+.cart-total-amount{font-weight:800;font-size:18px;color:#E65100}
+.cart-total-row.main{font-size:16px;padding-top:8px;border-top:1px dashed var(--border)}
+.cart-total-row.main .cart-total-label{color:var(--text);font-weight:800}
+.cart-total-row.main .cart-total-amount{font-size:20px}
 .btn-send{width:100%;padding:14px;border:none;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:transform .1s}
 .btn-send:active{transform:scale(.97)}
 .btn-send:disabled{opacity:.5;cursor:not-allowed}
@@ -498,10 +496,7 @@ ${carritoActivo ? `
   <div class="cart-body" id="cartBody"></div>
   <div class="cart-footer">
     <textarea class="cart-notes" id="cartNotes" rows="2" placeholder="Notas del pedido (opcional)"></textarea>
-    <div class="cart-total">
-      <span class="cart-total-label">Total:</span>
-      <span class="cart-total-amount" id="cartTotal">0 CUP</span>
-    </div>
+    <div class="cart-total" id="cartTotal"></div>
     <button class="btn-send ${contactoEsWhatsapp ? 'btn-send-wa' : 'btn-send-sms'}" id="btnSend" disabled>
       ${contactoEsWhatsapp ? '💬 Enviar pedido por WhatsApp' : '📱 Enviar pedido por SMS'}
     </button>
@@ -569,14 +564,12 @@ ${carritoActivo ? `
       document.body.removeChild(ta);
     }
 
-    /* Móvil: usar share nativo si está disponible */
     if (esMovil && navigator.share) {
       navigator.share({ title: NOMBRE_NEGOCIO, text: texto, url: url })
         .catch(function(){ copiarFallback(texto); });
       return;
     }
 
-    /* PC: copiar al portapapeles con fallback */
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(texto).then(function(){
         showToast('📋 Link copiado al portapapeles');
@@ -685,13 +678,23 @@ ${carritoActivo ? `
   });
 
   ${carritoActivo ? `
-  /* === CARRITO === */
+  /* === CARRITO (con soporte multi-moneda) === */
   function qty(id){
     var item = carrito.find(function(i){ return i.id === id; });
     return item ? item.qty : 0;
   }
   function totalItems(){ return carrito.reduce(function(s,i){ return s + i.qty; }, 0); }
-  function totalPrecio(){ return carrito.reduce(function(s,i){ return s + i.qty * i.precio; }, 0); }
+
+  /* ⭐ NUEVO: Total agrupado por moneda */
+  function totalPorMoneda(){
+    var totales = {};
+    carrito.forEach(function(i){
+      var m = i.moneda || 'CUP';
+      if (!totales[m]) totales[m] = 0;
+      totales[m] += i.qty * i.precio;
+    });
+    return totales;
+  }
 
   function save(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito)); } catch(e){} }
 
@@ -734,7 +737,7 @@ ${carritoActivo ? `
     });
     if (carrito.length === 0) {
       cartBody.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>Tu carrito está vacío</div><div style="font-size:12px;margin-top:6px">Agrega productos del catálogo</div></div>';
-      cartTotal.textContent = '0 CUP';
+      cartTotal.innerHTML = '';
       actualizarFab();
       return;
     }
@@ -755,7 +758,18 @@ ${carritoActivo ? `
       '</div>';
     });
     cartBody.innerHTML = html;
-    cartTotal.textContent = fmtPrecio(totalPrecio(), carrito[0].moneda);
+
+    /* ⭐ NUEVO: Renderizar totales agrupados por moneda */
+    var totales = totalPorMoneda();
+    var monedas = Object.keys(totales);
+    var totalHtml = '';
+    monedas.forEach(function(m){
+      totalHtml += '<div class="cart-total-row">' +
+        '<span class="cart-total-label">Total ' + m + ':</span>' +
+        '<span class="cart-total-amount">' + fmtPrecio(totales[m], m) + '</span>' +
+      '</div>';
+    });
+    cartTotal.innerHTML = totalHtml;
     actualizarFab();
   }
 
@@ -783,15 +797,19 @@ ${carritoActivo ? `
     renderCart();
   }
 
+  /* ⭐ CORREGIDO: Mensaje con totales separados por moneda + saltos de línea reales */
   function generarMensaje(){
     if (carrito.length === 0) return '';
-    var moneda = carrito[0].moneda;
     var lines = ['Hola, quiero hacer un pedido en ' + NOMBRE_NEGOCIO + ':', ''];
     carrito.forEach(function(item){
       lines.push('• ' + item.qty + 'x ' + item.nombre + ' (' + fmtPrecio(item.precio * item.qty, item.moneda) + ')');
     });
     lines.push('');
-    lines.push('💰 *Total: ' + fmtPrecio(totalPrecio(), moneda) + '*');
+    var totales = totalPorMoneda();
+    var monedas = Object.keys(totales);
+    monedas.forEach(function(m){
+      lines.push('💰 *Total ' + m + ': ' + fmtPrecio(totales[m], m) + '*');
+    });
     var notes = (cartNotes.value || '').trim();
     if (notes) {
       lines.push('');
