@@ -541,13 +541,50 @@ ${carritoActivo ? `
     setTimeout(function(){ toast.classList.remove('show'); }, 2000);
   }
 
-  /* === Compartir === */
+  /* ============================================================
+     ⭐ COMPARTIR — Móvil: share nativo / PC: copiar al portapapeles
+     ============================================================ */
   var btnShare = document.getElementById('btnShare');
   if (btnShare) btnShare.addEventListener('click', function(){
-    var data = { title: NOMBRE_NEGOCIO, text: 'Mira ' + NOMBRE_NEGOCIO + ' en Tranqui', url: location.href };
-    if (navigator.share) { navigator.share(data).catch(function(){}); }
-    else if (navigator.clipboard) {
-      navigator.clipboard.writeText(location.href).then(function(){ showToast('📋 Link copiado'); });
+    var url = location.href;
+    var texto = 'Mira ' + NOMBRE_NEGOCIO + ' en Tranqui: ' + url;
+    var esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    function copiarFallback(t){
+      var ta = document.createElement('textarea');
+      ta.value = t;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '-9999px';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('📋 Link copiado al portapapeles');
+      } catch(err) {
+        showToast('🔗 ' + url);
+      }
+      document.body.removeChild(ta);
+    }
+
+    /* Móvil: usar share nativo si está disponible */
+    if (esMovil && navigator.share) {
+      navigator.share({ title: NOMBRE_NEGOCIO, text: texto, url: url })
+        .catch(function(){ copiarFallback(texto); });
+      return;
+    }
+
+    /* PC: copiar al portapapeles con fallback */
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(function(){
+        showToast('📋 Link copiado al portapapeles');
+      }).catch(function(){
+        copiarFallback(texto);
+      });
+    } else {
+      copiarFallback(texto);
     }
   });
 
