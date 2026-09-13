@@ -12,6 +12,7 @@
 //   - Directorio /p/ y sitemap.xml
 //   - ⭐ PARCHE EN VIVO: actualiza datos desde API al abrir la página
 // Uso:  node generar_vip.js   (requiere Node 18+)
+
 const fs = require('fs');
 const path = require('path');
 
@@ -682,7 +683,6 @@ ${carritoActivo ? `
   }
 
   function renderCart(){
-    // sincronizar botones + steppers (catálogo y resultados)
     document.querySelectorAll('.btn-add').forEach(function(b){
       var id = b.getAttribute('data-add');
       var ctrl = b.parentElement;
@@ -809,7 +809,6 @@ ${carritoActivo ? `
   }
   `}
 
-  // Delegación global para botones "+ Agregar" (catálogo + resultados)
   document.addEventListener('click', function(e){
     var btn = e.target.closest('.btn-add');
     if (!btn) return;
@@ -822,7 +821,6 @@ ${carritoActivo ? `
     btn.classList.add('added');
     setTimeout(function(){ btn.textContent = '+ Agregar'; btn.classList.remove('added'); }, 1200);
   });
-  // Delegación global para botones − / + del stepper
   document.addEventListener('click', function(e){
     var dec = e.target.closest('.sbtn[data-dec]');
     if (dec) { updateQty(dec.getAttribute('data-dec'), -1); return; }
@@ -853,18 +851,15 @@ ${carritoActivo ? `
         if (!json.success || !json.data) return;
         var n = json.data;
 
-        // Actualizar nombre
         var elNombre = document.getElementById('live-nombre');
         if (elNombre && n.nombre) elNombre.textContent = n.nombre;
 
-        // Actualizar descripción
         var elDesc = document.getElementById('live-descripcion');
         if (elDesc) {
           var descViva = n.descripcionVip || n.descripcion || '';
           if (descViva) elDesc.textContent = descViva;
         }
 
-        // Actualizar horario
         var elHorario = document.getElementById('live-horario');
         if (elHorario && n.horario) {
           elHorario.textContent = n.horario;
@@ -872,14 +867,12 @@ ${carritoActivo ? `
           if (wrap) wrap.style.display = '';
         }
 
-        // Actualizar categoría
         var elCat = document.getElementById('live-categoria');
         if (elCat && n.categoriaPrincipal) {
           elCat.textContent = '🏷️ ' + String(n.categoriaPrincipal).replace(/_/g, ' ');
           elCat.style.display = '';
         }
 
-        // Actualizar badge VIP
         var elBadge = document.getElementById('live-badge');
         if (elBadge) {
           var tipo = (n.tipoVip || '').toLowerCase();
@@ -902,11 +895,9 @@ ${carritoActivo ? `
             elBadge.innerHTML = '<span class="badge-vip" style="background:' + bg + ';color:' + fg + ';border:1px solid ' + border + '">' + label + '</span>';
           }
 
-          // Actualizar estado en footer
           var elEstado = document.getElementById('live-estado');
           if (elEstado) elEstado.textContent = expirado ? 'estuvo' : 'está';
 
-          // Actualizar banner expirado
           var elBanner = document.getElementById('live-banner');
           if (elBanner) {
             if (expirado) {
@@ -917,7 +908,6 @@ ${carritoActivo ? `
           }
         }
 
-        // Actualizar avatar (primera foto)
         var elAvatar = document.getElementById('live-avatar');
         if (elAvatar && n.fotos && n.fotos.length > 0) {
           var fotoUrl = n.fotos[0];
@@ -927,7 +917,6 @@ ${carritoActivo ? `
           elAvatar.innerHTML = '<img src="' + fotoUrl + '" alt="' + escJs(n.nombre || '') + '">';
         }
 
-        // Actualizar galería de fotos
         var elGaleria = document.getElementById('live-galeria');
         if (elGaleria && n.fotos && n.fotos.length > 0) {
           var imgs = n.fotos.slice(0, 10).map(function(f, i){
@@ -939,7 +928,6 @@ ${carritoActivo ? `
           }).join('');
           elGaleria.innerHTML = '<section><h2>📸 Fotos</h2><div class="galeria-scroll">' + imgs + '</div></section>';
 
-          // Re-agregar event listeners de lightbox
           elGaleria.querySelectorAll('.galeria-scroll img').forEach(function(im){
             im.addEventListener('click', function(){
               document.getElementById('lightboxImg').src = im.src;
