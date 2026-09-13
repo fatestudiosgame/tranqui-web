@@ -210,13 +210,50 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
     setTimeout(function(){ toast.classList.remove('show'); }, 2000);
   }
 
-  /* === Compartir === */
+  /* ============================================================
+     ⭐ COMPARTIR — Móvil: share nativo / PC: copiar al portapapeles
+     ============================================================ */
   var btnShare = document.getElementById('btnShare');
   if (btnShare) btnShare.addEventListener('click', function(){
-    var data = { title: NOMBRE_NEGOCIO, text: 'Mira ' + NOMBRE_NEGOCIO + ' en Tranqui', url: location.href };
-    if (navigator.share) { navigator.share(data).catch(function(){}); }
-    else if (navigator.clipboard) {
-      navigator.clipboard.writeText(location.href).then(function(){ showToast('📋 Link copiado'); });
+    var url = location.href;
+    var texto = 'Mira ' + NOMBRE_NEGOCIO + ' en Tranqui: ' + url;
+    var esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    function copiarFallback(t){
+      var ta = document.createElement('textarea');
+      ta.value = t;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '-9999px';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('📋 Link copiado al portapapeles');
+      } catch(err) {
+        showToast('🔗 ' + url);
+      }
+      document.body.removeChild(ta);
+    }
+
+    /* Móvil: usar share nativo si está disponible */
+    if (esMovil && navigator.share) {
+      navigator.share({ title: NOMBRE_NEGOCIO, text: texto, url: url })
+        .catch(function(){ copiarFallback(texto); });
+      return;
+    }
+
+    /* PC: copiar al portapapeles con fallback */
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(function(){
+        showToast('📋 Link copiado al portapapeles');
+      }).catch(function(){
+        copiarFallback(texto);
+      });
+    } else {
+      copiarFallback(texto);
     }
   });
 
@@ -323,7 +360,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
   }
   
 
-  // Delegación global para botones "+ Agregar" (catálogo + resultados)
   document.addEventListener('click', function(e){
     var btn = e.target.closest('.btn-add');
     if (!btn) return;
@@ -336,7 +372,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
     btn.classList.add('added');
     setTimeout(function(){ btn.textContent = '+ Agregar'; btn.classList.remove('added'); }, 1200);
   });
-  // Delegación global para botones − / + del stepper
   document.addEventListener('click', function(e){
     var dec = e.target.closest('.sbtn[data-dec]');
     if (dec) { updateQty(dec.getAttribute('data-dec'), -1); return; }
@@ -367,18 +402,15 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
         if (!json.success || !json.data) return;
         var n = json.data;
 
-        // Actualizar nombre
         var elNombre = document.getElementById('live-nombre');
         if (elNombre && n.nombre) elNombre.textContent = n.nombre;
 
-        // Actualizar descripción
         var elDesc = document.getElementById('live-descripcion');
         if (elDesc) {
           var descViva = n.descripcionVip || n.descripcion || '';
           if (descViva) elDesc.textContent = descViva;
         }
 
-        // Actualizar horario
         var elHorario = document.getElementById('live-horario');
         if (elHorario && n.horario) {
           elHorario.textContent = n.horario;
@@ -386,14 +418,12 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
           if (wrap) wrap.style.display = '';
         }
 
-        // Actualizar categoría
         var elCat = document.getElementById('live-categoria');
         if (elCat && n.categoriaPrincipal) {
           elCat.textContent = '🏷️ ' + String(n.categoriaPrincipal).replace(/_/g, ' ');
           elCat.style.display = '';
         }
 
-        // Actualizar badge VIP
         var elBadge = document.getElementById('live-badge');
         if (elBadge) {
           var tipo = (n.tipoVip || '').toLowerCase();
@@ -416,11 +446,9 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
             elBadge.innerHTML = '<span class="badge-vip" style="background:' + bg + ';color:' + fg + ';border:1px solid ' + border + '">' + label + '</span>';
           }
 
-          // Actualizar estado en footer
           var elEstado = document.getElementById('live-estado');
           if (elEstado) elEstado.textContent = expirado ? 'estuvo' : 'está';
 
-          // Actualizar banner expirado
           var elBanner = document.getElementById('live-banner');
           if (elBanner) {
             if (expirado) {
@@ -431,7 +459,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
           }
         }
 
-        // Actualizar avatar (primera foto)
         var elAvatar = document.getElementById('live-avatar');
         if (elAvatar && n.fotos && n.fotos.length > 0) {
           var fotoUrl = n.fotos[0];
@@ -441,7 +468,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
           elAvatar.innerHTML = '<img src="' + fotoUrl + '" alt="' + escJs(n.nombre || '') + '">';
         }
 
-        // Actualizar galería de fotos
         var elGaleria = document.getElementById('live-galeria');
         if (elGaleria && n.fotos && n.fotos.length > 0) {
           var imgs = n.fotos.slice(0, 10).map(function(f, i){
@@ -453,7 +479,6 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
           }).join('');
           elGaleria.innerHTML = '<section><h2>📸 Fotos</h2><div class="galeria-scroll">' + imgs + '</div></section>';
 
-          // Re-agregar event listeners de lightbox
           elGaleria.querySelectorAll('.galeria-scroll img').forEach(function(im){
             im.addEventListener('click', function(){
               document.getElementById('lightboxImg').src = im.src;
