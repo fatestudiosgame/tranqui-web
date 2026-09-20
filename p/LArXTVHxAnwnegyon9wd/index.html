@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://fatestudiosgame.github.io/tranqui-web/og-image.png">
 <link rel="canonical" href="https://fatestudiosgame.github.io/tranqui-web/p/LArXTVHxAnwnegyon9wd/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23FF9800'/><stop offset='1' stop-color='%23FF5722'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><path transform='scale(2.6667)' fill='%23ffffff' d='M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z'/></svg>"><link rel="icon" type="image/png" href="https://fatestudiosgame.github.io/tranqui-web/og-image.png"><link rel="apple-touch-icon" href="https://fatestudiosgame.github.io/tranqui-web/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://fatestudiosgame.github.io/tranqui-web/p/LArXTVHxAnwnegyon9wd/#negocio","name":"Garaje de Pocholo","description":"Los mejores precios del barrio","url":"https://fatestudiosgame.github.io/tranqui-web/p/LArXTVHxAnwnegyon9wd/","image":"https://fatestudiosgame.github.io/tranqui-web/og-image.png","currenciesAccepted":"CUP","paymentAccepted":"Transferencia bancaria, Transfermóvil","telephone":"+53 55289921","address":{"@type":"PostalAddress","addressLocality":"Habana del Este","addressRegion":"La Habana","addressCountry":"CU"},"geo":{"@type":"GeoCoordinates","latitude":23.158243417999383,"longitude":-82.26959222405324}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://fatestudiosgame.github.io/tranqui-web/p/LArXTVHxAnwnegyon9wd/#negocio","name":"Garaje de Pocholo","description":"Los mejores precios del barrio","url":"https://fatestudiosgame.github.io/tranqui-web/p/LArXTVHxAnwnegyon9wd/","image":"https://fatestudiosgame.github.io/tranqui-web/og-image.png","currenciesAccepted":"CUP","paymentAccepted":"Transferencia bancaria, Transfermóvil","telephone":"+53 55289921","address":{"@type":"PostalAddress","addressLocality":"Habana del Este","addressRegion":"La Habana","addressCountry":"CU"},"geo":{"@type":"GeoCoordinates","latitude":23.158243417999383,"longitude":-82.26959222405324},"makesOffer":[{"@type":"Offer","name":"Refresco gaseado Ritz de kola","price":"550","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Refresco gaseado Ritz de naranja","price":"550","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Refresco gaseado Ritz de limón","price":"550","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Refresco gaseado Ritz de piña","price":"550","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Vodka de limón","price":"300","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Agua natural","price":"280","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Cerveza La Fría","price":"620","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Jugo de manzana y pera","price":"330","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Malta Guajira","price":"1700","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Malta Morena","price":"500","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Energizante B52","price":"600","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Vino seco","price":"350","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Azúcar a granel (la lb)","price":"550","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Arroz a granel (la lb)","price":"350","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Sal a granel (la lb)","price":"200","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Lavavajillas","price":"800","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Detergente líquido","price":"580","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Ambientador","price":"650","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Champú de bebé","price":"650","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Pasta dental","price":"600","priceCurrency":"CUP","availability":"https://schema.org/InStock"}]}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--primary:#FF5722;--wa:#25D366;--card:#fff;--text:#1a1a1a;--muted:#666;--border:#f0f0f0;--shadow:0 4px 16px rgba(0,0,0,.06)}
@@ -167,7 +167,754 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
     <button type="button" class="btn btn-share" id="btnShare">🔗 Compartir este negocio</button>
   </div>
 
-  <div id="live-catalogo-wrap"></div>
+  <div id="live-catalogo-wrap">
+    <div class="searchbar">
+      <span class="sicon">🔍</span>
+      <input id="searchInput" type="search" placeholder="Buscar producto... (ej: leche, café)" autocomplete="off" aria-label="Buscar producto">
+      <button type="button" class="sclear" id="searchClear" style="display:none" aria-label="Limpiar búsqueda">✕</button>
+    </div>
+    <div class="searchcount" id="searchCount" style="display:none"></div>
+    <div id="searchResults" style="display:none"></div>
+    <section class="catalogo" id="catalogWrap"><h2>📋 Catálogo</h2><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Bebidas</span><span class="cat-count">12</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Refresco gaseado Ritz de kola</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">550 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="5okZGkOgLeku7mehAzpZ" data-pnombre="Refresco gaseado Ritz de kola" data-pprecio="550" data-pmoneda="CUP" aria-label="Agregar Refresco gaseado Ritz de kola al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="5okZGkOgLeku7mehAzpZ" style="display:none">
+                <button type="button" class="sbtn" data-dec="5okZGkOgLeku7mehAzpZ">−</button>
+                <span class="sqty" data-q="5okZGkOgLeku7mehAzpZ">0</span>
+                <button type="button" class="sbtn" data-add="5okZGkOgLeku7mehAzpZ">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Refresco gaseado Ritz de naranja</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">550 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="aCkgT0mflaSQAkI3VhH9" data-pnombre="Refresco gaseado Ritz de naranja" data-pprecio="550" data-pmoneda="CUP" aria-label="Agregar Refresco gaseado Ritz de naranja al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="aCkgT0mflaSQAkI3VhH9" style="display:none">
+                <button type="button" class="sbtn" data-dec="aCkgT0mflaSQAkI3VhH9">−</button>
+                <span class="sqty" data-q="aCkgT0mflaSQAkI3VhH9">0</span>
+                <button type="button" class="sbtn" data-add="aCkgT0mflaSQAkI3VhH9">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Refresco gaseado Ritz de limón</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">550 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="6zd5GzDDDmWyRMGa7n0M" data-pnombre="Refresco gaseado Ritz de limón" data-pprecio="550" data-pmoneda="CUP" aria-label="Agregar Refresco gaseado Ritz de limón al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="6zd5GzDDDmWyRMGa7n0M" style="display:none">
+                <button type="button" class="sbtn" data-dec="6zd5GzDDDmWyRMGa7n0M">−</button>
+                <span class="sqty" data-q="6zd5GzDDDmWyRMGa7n0M">0</span>
+                <button type="button" class="sbtn" data-add="6zd5GzDDDmWyRMGa7n0M">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Refresco gaseado Ritz de piña</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">550 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="zmjZQFDCeRHqrW3Kx3Iy" data-pnombre="Refresco gaseado Ritz de piña" data-pprecio="550" data-pmoneda="CUP" aria-label="Agregar Refresco gaseado Ritz de piña al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="zmjZQFDCeRHqrW3Kx3Iy" style="display:none">
+                <button type="button" class="sbtn" data-dec="zmjZQFDCeRHqrW3Kx3Iy">−</button>
+                <span class="sqty" data-q="zmjZQFDCeRHqrW3Kx3Iy">0</span>
+                <button type="button" class="sbtn" data-add="zmjZQFDCeRHqrW3Kx3Iy">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Vodka de limón</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">300 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="z50599weCDJLv3XDvOtH" data-pnombre="Vodka de limón" data-pprecio="300" data-pmoneda="CUP" aria-label="Agregar Vodka de limón al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="z50599weCDJLv3XDvOtH" style="display:none">
+                <button type="button" class="sbtn" data-dec="z50599weCDJLv3XDvOtH">−</button>
+                <span class="sqty" data-q="z50599weCDJLv3XDvOtH">0</span>
+                <button type="button" class="sbtn" data-add="z50599weCDJLv3XDvOtH">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Agua natural</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">280 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="1I5rMlZ69onhkhV7cz9v" data-pnombre="Agua natural" data-pprecio="280" data-pmoneda="CUP" aria-label="Agregar Agua natural al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="1I5rMlZ69onhkhV7cz9v" style="display:none">
+                <button type="button" class="sbtn" data-dec="1I5rMlZ69onhkhV7cz9v">−</button>
+                <span class="sqty" data-q="1I5rMlZ69onhkhV7cz9v">0</span>
+                <button type="button" class="sbtn" data-add="1I5rMlZ69onhkhV7cz9v">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Cerveza La Fría</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">620 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="3cskDA4fXsEI06sBxaC8" data-pnombre="Cerveza La Fría" data-pprecio="620" data-pmoneda="CUP" aria-label="Agregar Cerveza La Fría al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="3cskDA4fXsEI06sBxaC8" style="display:none">
+                <button type="button" class="sbtn" data-dec="3cskDA4fXsEI06sBxaC8">−</button>
+                <span class="sqty" data-q="3cskDA4fXsEI06sBxaC8">0</span>
+                <button type="button" class="sbtn" data-add="3cskDA4fXsEI06sBxaC8">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Jugo de manzana y pera</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">330 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="GJN81ShnyHHdSQudr1Db" data-pnombre="Jugo de manzana y pera" data-pprecio="330" data-pmoneda="CUP" aria-label="Agregar Jugo de manzana y pera al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="GJN81ShnyHHdSQudr1Db" style="display:none">
+                <button type="button" class="sbtn" data-dec="GJN81ShnyHHdSQudr1Db">−</button>
+                <span class="sqty" data-q="GJN81ShnyHHdSQudr1Db">0</span>
+                <button type="button" class="sbtn" data-add="GJN81ShnyHHdSQudr1Db">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Malta Guajira</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">1 700 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="Vxqmrheu1v8z3U3jWgou" data-pnombre="Malta Guajira" data-pprecio="1700" data-pmoneda="CUP" aria-label="Agregar Malta Guajira al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="Vxqmrheu1v8z3U3jWgou" style="display:none">
+                <button type="button" class="sbtn" data-dec="Vxqmrheu1v8z3U3jWgou">−</button>
+                <span class="sqty" data-q="Vxqmrheu1v8z3U3jWgou">0</span>
+                <button type="button" class="sbtn" data-add="Vxqmrheu1v8z3U3jWgou">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Malta Morena</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">500 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="EJxHy0NKMLJ8UZyaiKb5" data-pnombre="Malta Morena" data-pprecio="500" data-pmoneda="CUP" aria-label="Agregar Malta Morena al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="EJxHy0NKMLJ8UZyaiKb5" style="display:none">
+                <button type="button" class="sbtn" data-dec="EJxHy0NKMLJ8UZyaiKb5">−</button>
+                <span class="sqty" data-q="EJxHy0NKMLJ8UZyaiKb5">0</span>
+                <button type="button" class="sbtn" data-add="EJxHy0NKMLJ8UZyaiKb5">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Energizante B52</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">600 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="MSLtD7qpzz1vwhh2yAWi" data-pnombre="Energizante B52" data-pprecio="600" data-pmoneda="CUP" aria-label="Agregar Energizante B52 al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="MSLtD7qpzz1vwhh2yAWi" style="display:none">
+                <button type="button" class="sbtn" data-dec="MSLtD7qpzz1vwhh2yAWi">−</button>
+                <span class="sqty" data-q="MSLtD7qpzz1vwhh2yAWi">0</span>
+                <button type="button" class="sbtn" data-add="MSLtD7qpzz1vwhh2yAWi">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Vino seco</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">350 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="KbKOnWEwVueZnaOKg7FU" data-pnombre="Vino seco" data-pprecio="350" data-pmoneda="CUP" aria-label="Agregar Vino seco al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="KbKOnWEwVueZnaOKg7FU" style="display:none">
+                <button type="button" class="sbtn" data-dec="KbKOnWEwVueZnaOKg7FU">−</button>
+                <span class="sqty" data-q="KbKOnWEwVueZnaOKg7FU">0</span>
+                <button type="button" class="sbtn" data-add="KbKOnWEwVueZnaOKg7FU">+</button>
+              </div>
+          </div>
+        </div></div></div><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Granel</span><span class="cat-count">3</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Azúcar a granel (la lb)</div>
+            <div class="prod-desc">Precio por libra</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">550 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="DyzAIpbllSWYrw2YBEVs" data-pnombre="Azúcar a granel (la lb)" data-pprecio="550" data-pmoneda="CUP" aria-label="Agregar Azúcar a granel (la lb) al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="DyzAIpbllSWYrw2YBEVs" style="display:none">
+                <button type="button" class="sbtn" data-dec="DyzAIpbllSWYrw2YBEVs">−</button>
+                <span class="sqty" data-q="DyzAIpbllSWYrw2YBEVs">0</span>
+                <button type="button" class="sbtn" data-add="DyzAIpbllSWYrw2YBEVs">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Arroz a granel (la lb)</div>
+            <div class="prod-desc">Precio por libra</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">350 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="26pizheGfLWYwsF7iqeO" data-pnombre="Arroz a granel (la lb)" data-pprecio="350" data-pmoneda="CUP" aria-label="Agregar Arroz a granel (la lb) al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="26pizheGfLWYwsF7iqeO" style="display:none">
+                <button type="button" class="sbtn" data-dec="26pizheGfLWYwsF7iqeO">−</button>
+                <span class="sqty" data-q="26pizheGfLWYwsF7iqeO">0</span>
+                <button type="button" class="sbtn" data-add="26pizheGfLWYwsF7iqeO">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Sal a granel (la lb)</div>
+            <div class="prod-desc">Precio por libra</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">200 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="8web9rmaCQcToP11BcLF" data-pnombre="Sal a granel (la lb)" data-pprecio="200" data-pmoneda="CUP" aria-label="Agregar Sal a granel (la lb) al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="8web9rmaCQcToP11BcLF" style="display:none">
+                <button type="button" class="sbtn" data-dec="8web9rmaCQcToP11BcLF">−</button>
+                <span class="sqty" data-q="8web9rmaCQcToP11BcLF">0</span>
+                <button type="button" class="sbtn" data-add="8web9rmaCQcToP11BcLF">+</button>
+              </div>
+          </div>
+        </div></div></div><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Limpieza y Hogar</span><span class="cat-count">8</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Lavavajillas</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">800 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="6ufoAiHqVF1LNfVpUmPF" data-pnombre="Lavavajillas" data-pprecio="800" data-pmoneda="CUP" aria-label="Agregar Lavavajillas al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="6ufoAiHqVF1LNfVpUmPF" style="display:none">
+                <button type="button" class="sbtn" data-dec="6ufoAiHqVF1LNfVpUmPF">−</button>
+                <span class="sqty" data-q="6ufoAiHqVF1LNfVpUmPF">0</span>
+                <button type="button" class="sbtn" data-add="6ufoAiHqVF1LNfVpUmPF">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Detergente líquido</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">580 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="SdrVwEMVO4Ar07lyxwCX" data-pnombre="Detergente líquido" data-pprecio="580" data-pmoneda="CUP" aria-label="Agregar Detergente líquido al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="SdrVwEMVO4Ar07lyxwCX" style="display:none">
+                <button type="button" class="sbtn" data-dec="SdrVwEMVO4Ar07lyxwCX">−</button>
+                <span class="sqty" data-q="SdrVwEMVO4Ar07lyxwCX">0</span>
+                <button type="button" class="sbtn" data-add="SdrVwEMVO4Ar07lyxwCX">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Ambientador</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">650 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="MgPZR94voPaMx7POxbnA" data-pnombre="Ambientador" data-pprecio="650" data-pmoneda="CUP" aria-label="Agregar Ambientador al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="MgPZR94voPaMx7POxbnA" style="display:none">
+                <button type="button" class="sbtn" data-dec="MgPZR94voPaMx7POxbnA">−</button>
+                <span class="sqty" data-q="MgPZR94voPaMx7POxbnA">0</span>
+                <button type="button" class="sbtn" data-add="MgPZR94voPaMx7POxbnA">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Champú de bebé</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">650 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="gQbYd8mc1HB8yafDs80r" data-pnombre="Champú de bebé" data-pprecio="650" data-pmoneda="CUP" aria-label="Agregar Champú de bebé al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="gQbYd8mc1HB8yafDs80r" style="display:none">
+                <button type="button" class="sbtn" data-dec="gQbYd8mc1HB8yafDs80r">−</button>
+                <span class="sqty" data-q="gQbYd8mc1HB8yafDs80r">0</span>
+                <button type="button" class="sbtn" data-add="gQbYd8mc1HB8yafDs80r">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Pasta dental</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">600 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="fQnaynaTByb8RlA7im2U" data-pnombre="Pasta dental" data-pprecio="600" data-pmoneda="CUP" aria-label="Agregar Pasta dental al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="fQnaynaTByb8RlA7im2U" style="display:none">
+                <button type="button" class="sbtn" data-dec="fQnaynaTByb8RlA7im2U">−</button>
+                <span class="sqty" data-q="fQnaynaTByb8RlA7im2U">0</span>
+                <button type="button" class="sbtn" data-add="fQnaynaTByb8RlA7im2U">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Limpiador</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">1 000 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="sTk8Dk8wgId7RlheS9bN" data-pnombre="Limpiador" data-pprecio="1000" data-pmoneda="CUP" aria-label="Agregar Limpiador al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="sTk8Dk8wgId7RlheS9bN" style="display:none">
+                <button type="button" class="sbtn" data-dec="sTk8Dk8wgId7RlheS9bN">−</button>
+                <span class="sqty" data-q="sTk8Dk8wgId7RlheS9bN">0</span>
+                <button type="button" class="sbtn" data-add="sTk8Dk8wgId7RlheS9bN">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Desinfectante</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">1 200 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="2EYdELHEEmk3jx6M6asS" data-pnombre="Desinfectante" data-pprecio="1200" data-pmoneda="CUP" aria-label="Agregar Desinfectante al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="2EYdELHEEmk3jx6M6asS" style="display:none">
+                <button type="button" class="sbtn" data-dec="2EYdELHEEmk3jx6M6asS">−</button>
+                <span class="sqty" data-q="2EYdELHEEmk3jx6M6asS">0</span>
+                <button type="button" class="sbtn" data-add="2EYdELHEEmk3jx6M6asS">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Tubo LED</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">3 000 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="7DaACbIzbmd3Pi5X3SYu" data-pnombre="Tubo LED" data-pprecio="3000" data-pmoneda="CUP" aria-label="Agregar Tubo LED al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="7DaACbIzbmd3Pi5X3SYu" style="display:none">
+                <button type="button" class="sbtn" data-dec="7DaACbIzbmd3Pi5X3SYu">−</button>
+                <span class="sqty" data-q="7DaACbIzbmd3Pi5X3SYu">0</span>
+                <button type="button" class="sbtn" data-add="7DaACbIzbmd3Pi5X3SYu">+</button>
+              </div>
+          </div>
+        </div></div></div><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Alimentos</span><span class="cat-count">12</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Aceite 900 ML</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">3 100 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="IhLqIBy7i8G1Tpsj3ccC" data-pnombre="Aceite 900 ML" data-pprecio="3100" data-pmoneda="CUP" aria-label="Agregar Aceite 900 ML al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="IhLqIBy7i8G1Tpsj3ccC" style="display:none">
+                <button type="button" class="sbtn" data-dec="IhLqIBy7i8G1Tpsj3ccC">−</button>
+                <span class="sqty" data-q="IhLqIBy7i8G1Tpsj3ccC">0</span>
+                <button type="button" class="sbtn" data-add="IhLqIBy7i8G1Tpsj3ccC">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Mortadela en lata</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">1 200 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="5ZnDlX2QkEbgfhIlLmXF" data-pnombre="Mortadela en lata" data-pprecio="1200" data-pmoneda="CUP" aria-label="Agregar Mortadela en lata al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="5ZnDlX2QkEbgfhIlLmXF" style="display:none">
+                <button type="button" class="sbtn" data-dec="5ZnDlX2QkEbgfhIlLmXF">−</button>
+                <span class="sqty" data-q="5ZnDlX2QkEbgfhIlLmXF">0</span>
+                <button type="button" class="sbtn" data-add="5ZnDlX2QkEbgfhIlLmXF">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Natilla de chocolate</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">250 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="cYQ604u23tOVyQslegOZ" data-pnombre="Natilla de chocolate" data-pprecio="250" data-pmoneda="CUP" aria-label="Agregar Natilla de chocolate al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="cYQ604u23tOVyQslegOZ" style="display:none">
+                <button type="button" class="sbtn" data-dec="cYQ604u23tOVyQslegOZ">−</button>
+                <span class="sqty" data-q="cYQ604u23tOVyQslegOZ">0</span>
+                <button type="button" class="sbtn" data-add="cYQ604u23tOVyQslegOZ">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Natilla de vainilla</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">250 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="kL1v9wPezAfNAJuhzuOe" data-pnombre="Natilla de vainilla" data-pprecio="250" data-pmoneda="CUP" aria-label="Agregar Natilla de vainilla al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="kL1v9wPezAfNAJuhzuOe" style="display:none">
+                <button type="button" class="sbtn" data-dec="kL1v9wPezAfNAJuhzuOe">−</button>
+                <span class="sqty" data-q="kL1v9wPezAfNAJuhzuOe">0</span>
+                <button type="button" class="sbtn" data-add="kL1v9wPezAfNAJuhzuOe">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Sopita de pollo</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">250 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="n8gwKfuIsjLMtloM02Of" data-pnombre="Sopita de pollo" data-pprecio="250" data-pmoneda="CUP" aria-label="Agregar Sopita de pollo al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="n8gwKfuIsjLMtloM02Of" style="display:none">
+                <button type="button" class="sbtn" data-dec="n8gwKfuIsjLMtloM02Of">−</button>
+                <span class="sqty" data-q="n8gwKfuIsjLMtloM02Of">0</span>
+                <button type="button" class="sbtn" data-add="n8gwKfuIsjLMtloM02Of">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Sopita de cerdo</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">250 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="fMiGW1KiK6PMBSLghxXD" data-pnombre="Sopita de cerdo" data-pprecio="250" data-pmoneda="CUP" aria-label="Agregar Sopita de cerdo al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="fMiGW1KiK6PMBSLghxXD" style="display:none">
+                <button type="button" class="sbtn" data-dec="fMiGW1KiK6PMBSLghxXD">−</button>
+                <span class="sqty" data-q="fMiGW1KiK6PMBSLghxXD">0</span>
+                <button type="button" class="sbtn" data-add="fMiGW1KiK6PMBSLghxXD">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Leche condensada</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">950 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="ML53L1eshvrTLdnHZBwB" data-pnombre="Leche condensada" data-pprecio="950" data-pmoneda="CUP" aria-label="Agregar Leche condensada al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="ML53L1eshvrTLdnHZBwB" style="display:none">
+                <button type="button" class="sbtn" data-dec="ML53L1eshvrTLdnHZBwB">−</button>
+                <span class="sqty" data-q="ML53L1eshvrTLdnHZBwB">0</span>
+                <button type="button" class="sbtn" data-add="ML53L1eshvrTLdnHZBwB">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Frijoles negros</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">900 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="d6TmNeDD7PdrFQqVIYvK" data-pnombre="Frijoles negros" data-pprecio="900" data-pmoneda="CUP" aria-label="Agregar Frijoles negros al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="d6TmNeDD7PdrFQqVIYvK" style="display:none">
+                <button type="button" class="sbtn" data-dec="d6TmNeDD7PdrFQqVIYvK">−</button>
+                <span class="sqty" data-q="d6TmNeDD7PdrFQqVIYvK">0</span>
+                <button type="button" class="sbtn" data-add="d6TmNeDD7PdrFQqVIYvK">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Arroz bolsa 1 kg</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">780 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="lmI15GCtXxB5azV3yleU" data-pnombre="Arroz bolsa 1 kg" data-pprecio="780" data-pmoneda="CUP" aria-label="Agregar Arroz bolsa 1 kg al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="lmI15GCtXxB5azV3yleU" style="display:none">
+                <button type="button" class="sbtn" data-dec="lmI15GCtXxB5azV3yleU">−</button>
+                <span class="sqty" data-q="lmI15GCtXxB5azV3yleU">0</span>
+                <button type="button" class="sbtn" data-add="lmI15GCtXxB5azV3yleU">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Vinagre</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">350 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="JpVk80wmPJM7DZrQKg4F" data-pnombre="Vinagre" data-pprecio="350" data-pmoneda="CUP" aria-label="Agregar Vinagre al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="JpVk80wmPJM7DZrQKg4F" style="display:none">
+                <button type="button" class="sbtn" data-dec="JpVk80wmPJM7DZrQKg4F">−</button>
+                <span class="sqty" data-q="JpVk80wmPJM7DZrQKg4F">0</span>
+                <button type="button" class="sbtn" data-add="JpVk80wmPJM7DZrQKg4F">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Mayonesa</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">1 400 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="BGt956TkjR9rgqriFmEj" data-pnombre="Mayonesa" data-pprecio="1400" data-pmoneda="CUP" aria-label="Agregar Mayonesa al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="BGt956TkjR9rgqriFmEj" style="display:none">
+                <button type="button" class="sbtn" data-dec="BGt956TkjR9rgqriFmEj">−</button>
+                <span class="sqty" data-q="BGt956TkjR9rgqriFmEj">0</span>
+                <button type="button" class="sbtn" data-add="BGt956TkjR9rgqriFmEj">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Caldo de pollo</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">50 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="5ZwBH0W5AvVEoovBwqp4" data-pnombre="Caldo de pollo" data-pprecio="50" data-pmoneda="CUP" aria-label="Agregar Caldo de pollo al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="5ZwBH0W5AvVEoovBwqp4" style="display:none">
+                <button type="button" class="sbtn" data-dec="5ZwBH0W5AvVEoovBwqp4">−</button>
+                <span class="sqty" data-q="5ZwBH0W5AvVEoovBwqp4">0</span>
+                <button type="button" class="sbtn" data-add="5ZwBH0W5AvVEoovBwqp4">+</button>
+              </div>
+          </div>
+        </div></div></div><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Galletas</span><span class="cat-count">3</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Galletas de soda</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">280 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="5xFErrT8Dv6doSgnMYxe" data-pnombre="Galletas de soda" data-pprecio="280" data-pmoneda="CUP" aria-label="Agregar Galletas de soda al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="5xFErrT8Dv6doSgnMYxe" style="display:none">
+                <button type="button" class="sbtn" data-dec="5xFErrT8Dv6doSgnMYxe">−</button>
+                <span class="sqty" data-q="5xFErrT8Dv6doSgnMYxe">0</span>
+                <button type="button" class="sbtn" data-add="5xFErrT8Dv6doSgnMYxe">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Galletas Marías</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">400 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="IimuPLzpKGF3sERhjf47" data-pnombre="Galletas Marías" data-pprecio="400" data-pmoneda="CUP" aria-label="Agregar Galletas Marías al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="IimuPLzpKGF3sERhjf47" style="display:none">
+                <button type="button" class="sbtn" data-dec="IimuPLzpKGF3sERhjf47">−</button>
+                <span class="sqty" data-q="IimuPLzpKGF3sERhjf47">0</span>
+                <button type="button" class="sbtn" data-add="IimuPLzpKGF3sERhjf47">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Galletas Milk</div>
+            
+            <div class="prod-bottom">
+              <span class="prod-precio">160 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="OIemAaVUzWpYmf1liv5x" data-pnombre="Galletas Milk" data-pprecio="160" data-pmoneda="CUP" aria-label="Agregar Galletas Milk al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="OIemAaVUzWpYmf1liv5x" style="display:none">
+                <button type="button" class="sbtn" data-dec="OIemAaVUzWpYmf1liv5x">−</button>
+                <span class="sqty" data-q="OIemAaVUzWpYmf1liv5x">0</span>
+                <button type="button" class="sbtn" data-add="OIemAaVUzWpYmf1liv5x">+</button>
+              </div>
+          </div>
+        </div></div></div><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Carnes</span><span class="cat-count">3</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Pollo (la lb)</div>
+            <div class="prod-desc">Precio por libra</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">800 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="C5IXlbygXyWYplmgq0Pm" data-pnombre="Pollo (la lb)" data-pprecio="800" data-pmoneda="CUP" aria-label="Agregar Pollo (la lb) al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="C5IXlbygXyWYplmgq0Pm" style="display:none">
+                <button type="button" class="sbtn" data-dec="C5IXlbygXyWYplmgq0Pm">−</button>
+                <span class="sqty" data-q="C5IXlbygXyWYplmgq0Pm">0</span>
+                <button type="button" class="sbtn" data-add="C5IXlbygXyWYplmgq0Pm">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Lomo ahumado (la lb)</div>
+            <div class="prod-desc">Precio por libra</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">1 950 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="t2NtdntLyWVzOnN2dAxx" data-pnombre="Lomo ahumado (la lb)" data-pprecio="1950" data-pmoneda="CUP" aria-label="Agregar Lomo ahumado (la lb) al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="t2NtdntLyWVzOnN2dAxx" style="display:none">
+                <button type="button" class="sbtn" data-dec="t2NtdntLyWVzOnN2dAxx">−</button>
+                <span class="sqty" data-q="t2NtdntLyWVzOnN2dAxx">0</span>
+                <button type="button" class="sbtn" data-add="t2NtdntLyWVzOnN2dAxx">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><div class="no-img">📦</div></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Picadillo (la lb)</div>
+            <div class="prod-desc">Precio por libra</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">600 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="TXEe0qEr8kDM6NLa6ebH" data-pnombre="Picadillo (la lb)" data-pprecio="600" data-pmoneda="CUP" aria-label="Agregar Picadillo (la lb) al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="TXEe0qEr8kDM6NLa6ebH" style="display:none">
+                <button type="button" class="sbtn" data-dec="TXEe0qEr8kDM6NLa6ebH">−</button>
+                <span class="sqty" data-q="TXEe0qEr8kDM6NLa6ebH">0</span>
+                <button type="button" class="sbtn" data-add="TXEe0qEr8kDM6NLa6ebH">+</button>
+              </div>
+          </div>
+        </div></div></div></section>
+  </div>
 </main>
 
 <footer class="footer">
@@ -177,6 +924,25 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 
 <a class="fab" href="https://wa.me/55289921?text=Hola%2C%20vi%20tu%20negocio%20en%20Tranqui%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
+
+<button type="button" class="fab-cart hidden" id="fabCart" aria-label="Ver carrito">
+  🛒<span class="cart-badge" id="cartBadge">0</span>
+</button>
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>🛒 Tu pedido</h3>
+    <button class="cart-close" id="cartClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer">
+    <textarea class="cart-notes" id="cartNotes" rows="2" placeholder="Notas del pedido (opcional)"></textarea>
+    <div class="cart-total" id="cartTotal"></div>
+    <button class="btn-send btn-send-wa" id="btnSend" disabled>
+      💬 Enviar pedido por WhatsApp
+    </button>
+  </div>
+</aside>
 
 
 <div class="toast" id="toast"></div>
@@ -188,7 +954,7 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
   var ID = "LArXTVHxAnwnegyon9wd";
   var BASE = "https://fatestudiosgame.github.io/tranqui-web";
   var WA = "55289921";
-  var PRODUCTOS = {};
+  var PRODUCTOS = {"5okZGkOgLeku7mehAzpZ":{"n":"Refresco gaseado Ritz de kola","p":550,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"aCkgT0mflaSQAkI3VhH9":{"n":"Refresco gaseado Ritz de naranja","p":550,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"6zd5GzDDDmWyRMGa7n0M":{"n":"Refresco gaseado Ritz de limón","p":550,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"zmjZQFDCeRHqrW3Kx3Iy":{"n":"Refresco gaseado Ritz de piña","p":550,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"z50599weCDJLv3XDvOtH":{"n":"Vodka de limón","p":300,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"1I5rMlZ69onhkhV7cz9v":{"n":"Agua natural","p":280,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"3cskDA4fXsEI06sBxaC8":{"n":"Cerveza La Fría","p":620,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"GJN81ShnyHHdSQudr1Db":{"n":"Jugo de manzana y pera","p":330,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"Vxqmrheu1v8z3U3jWgou":{"n":"Malta Guajira","p":1700,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"EJxHy0NKMLJ8UZyaiKb5":{"n":"Malta Morena","p":500,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"MSLtD7qpzz1vwhh2yAWi":{"n":"Energizante B52","p":600,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"KbKOnWEwVueZnaOKg7FU":{"n":"Vino seco","p":350,"m":"CUP","d":"","i":"","a":false,"c":"Bebidas"},"DyzAIpbllSWYrw2YBEVs":{"n":"Azúcar a granel (la lb)","p":550,"m":"CUP","d":"Precio por libra","i":"","a":false,"c":"Granel"},"26pizheGfLWYwsF7iqeO":{"n":"Arroz a granel (la lb)","p":350,"m":"CUP","d":"Precio por libra","i":"","a":false,"c":"Granel"},"8web9rmaCQcToP11BcLF":{"n":"Sal a granel (la lb)","p":200,"m":"CUP","d":"Precio por libra","i":"","a":false,"c":"Granel"},"6ufoAiHqVF1LNfVpUmPF":{"n":"Lavavajillas","p":800,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"SdrVwEMVO4Ar07lyxwCX":{"n":"Detergente líquido","p":580,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"MgPZR94voPaMx7POxbnA":{"n":"Ambientador","p":650,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"gQbYd8mc1HB8yafDs80r":{"n":"Champú de bebé","p":650,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"fQnaynaTByb8RlA7im2U":{"n":"Pasta dental","p":600,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"sTk8Dk8wgId7RlheS9bN":{"n":"Limpiador","p":1000,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"2EYdELHEEmk3jx6M6asS":{"n":"Desinfectante","p":1200,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"7DaACbIzbmd3Pi5X3SYu":{"n":"Tubo LED","p":3000,"m":"CUP","d":"","i":"","a":false,"c":"Limpieza y Hogar"},"IhLqIBy7i8G1Tpsj3ccC":{"n":"Aceite 900 ML","p":3100,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"5ZnDlX2QkEbgfhIlLmXF":{"n":"Mortadela en lata","p":1200,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"cYQ604u23tOVyQslegOZ":{"n":"Natilla de chocolate","p":250,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"kL1v9wPezAfNAJuhzuOe":{"n":"Natilla de vainilla","p":250,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"n8gwKfuIsjLMtloM02Of":{"n":"Sopita de pollo","p":250,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"fMiGW1KiK6PMBSLghxXD":{"n":"Sopita de cerdo","p":250,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"ML53L1eshvrTLdnHZBwB":{"n":"Leche condensada","p":950,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"d6TmNeDD7PdrFQqVIYvK":{"n":"Frijoles negros","p":900,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"lmI15GCtXxB5azV3yleU":{"n":"Arroz bolsa 1 kg","p":780,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"JpVk80wmPJM7DZrQKg4F":{"n":"Vinagre","p":350,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"BGt956TkjR9rgqriFmEj":{"n":"Mayonesa","p":1400,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"5ZwBH0W5AvVEoovBwqp4":{"n":"Caldo de pollo","p":50,"m":"CUP","d":"","i":"","a":false,"c":"Alimentos"},"5xFErrT8Dv6doSgnMYxe":{"n":"Galletas de soda","p":280,"m":"CUP","d":"","i":"","a":false,"c":"Galletas"},"IimuPLzpKGF3sERhjf47":{"n":"Galletas Marías","p":400,"m":"CUP","d":"","i":"","a":false,"c":"Galletas"},"OIemAaVUzWpYmf1liv5x":{"n":"Galletas Milk","p":160,"m":"CUP","d":"","i":"","a":false,"c":"Galletas"},"C5IXlbygXyWYplmgq0Pm":{"n":"Pollo (la lb)","p":800,"m":"CUP","d":"Precio por libra","i":"","a":false,"c":"Carnes"},"t2NtdntLyWVzOnN2dAxx":{"n":"Lomo ahumado (la lb)","p":1950,"m":"CUP","d":"Precio por libra","i":"","a":false,"c":"Carnes"},"TXEe0qEr8kDM6NLa6ebH":{"n":"Picadillo (la lb)","p":600,"m":"CUP","d":"Precio por libra","i":"","a":false,"c":"Carnes"}};
   var CONTACTO_NUMERO = "55289921";
   var CONTACTO_ES_WA = true;
   var NOMBRE_NEGOCIO = "Garaje de Pocholo";
@@ -353,10 +1119,185 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
   });
 
   
-  function renderCart(){}
-  function addToCart(pid, nombre, precio, moneda){
-    showToast('⚠️ Carrito no disponible');
+  /* === CARRITO (con soporte multi-moneda) === */
+  function qty(id){
+    var item = carrito.find(function(i){ return i.id === id; });
+    return item ? item.qty : 0;
   }
+  function totalItems(){ return carrito.reduce(function(s,i){ return s + i.qty; }, 0); }
+
+  /* ⭐ NUEVO: Total agrupado por moneda */
+  function totalPorMoneda(){
+    var totales = {};
+    carrito.forEach(function(i){
+      var m = i.moneda || 'CUP';
+      if (!totales[m]) totales[m] = 0;
+      totales[m] += i.qty * i.precio;
+    });
+    return totales;
+  }
+
+  function save(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito)); } catch(e){} }
+
+  var fabCart = document.getElementById('fabCart');
+  var cartBadge = document.getElementById('cartBadge');
+  var cartDrawer = document.getElementById('cartDrawer');
+  var cartOverlay = document.getElementById('cartOverlay');
+  var cartClose = document.getElementById('cartClose');
+  var cartBody = document.getElementById('cartBody');
+  var cartTotal = document.getElementById('cartTotal');
+  var cartNotes = document.getElementById('cartNotes');
+  var btnSend = document.getElementById('btnSend');
+
+  function actualizarFab(){
+    var count = totalItems();
+    if (count > 0) {
+      fabCart.classList.remove('hidden');
+      cartBadge.textContent = count;
+      cartBadge.classList.remove('pop');
+      void cartBadge.offsetWidth;
+      cartBadge.classList.add('pop');
+    } else {
+      fabCart.classList.add('hidden');
+    }
+    btnSend.disabled = count === 0;
+  }
+
+  function renderCart(){
+    document.querySelectorAll('.btn-add').forEach(function(b){
+      var id = b.getAttribute('data-add');
+      var ctrl = b.parentElement;
+      var st = ctrl ? ctrl.querySelector('[data-stepper="' + id + '"]') : null;
+      if (st) {
+        if (qty(id) > 0) { st.style.display = 'flex'; b.style.display = 'none'; }
+        else { st.style.display = 'none'; b.style.display = 'inline-block'; }
+      }
+    });
+    document.querySelectorAll('.sqty[data-q]').forEach(function(s){
+      s.textContent = qty(s.getAttribute('data-q'));
+    });
+    if (carrito.length === 0) {
+      cartBody.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>Tu carrito está vacío</div><div style="font-size:12px;margin-top:6px">Agrega productos del catálogo</div></div>';
+      cartTotal.innerHTML = '';
+      actualizarFab();
+      return;
+    }
+    var html = '';
+    carrito.forEach(function(item){
+      html += '<div class="cart-item" data-pid="' + escJs(item.id) + '">' +
+        '<div class="cart-item-info">' +
+          '<div class="cart-item-name">' + escJs(item.nombre) + '</div>' +
+          '<div class="cart-item-price">' + fmtPrecio(item.precio, item.moneda) + ' c/u</div>' +
+          '<div class="cart-item-controls">' +
+            '<button class="cart-qty-btn" data-act="dec">−</button>' +
+            '<span class="cart-qty">' + item.qty + '</span>' +
+            '<button class="cart-qty-btn" data-act="inc">+</button>' +
+            '<button class="cart-item-remove" data-act="rm" aria-label="Quitar">🗑️</button>' +
+          '</div>' +
+          '<div class="cart-item-subtotal">Subtotal: ' + fmtPrecio(item.precio * item.qty, item.moneda) + '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    cartBody.innerHTML = html;
+
+    /* ⭐ NUEVO: Renderizar totales agrupados por moneda */
+    var totales = totalPorMoneda();
+    var monedas = Object.keys(totales);
+    var totalHtml = '';
+    monedas.forEach(function(m){
+      totalHtml += '<div class="cart-total-row">' +
+        '<span class="cart-total-label">Total ' + m + ':</span>' +
+        '<span class="cart-total-amount">' + fmtPrecio(totales[m], m) + '</span>' +
+      '</div>';
+    });
+    cartTotal.innerHTML = totalHtml;
+    actualizarFab();
+  }
+
+  function addToCart(pid, nombre, precio, moneda){
+    var existente = carrito.find(function(i){ return i.id === pid; });
+    if (existente) existente.qty++;
+    else carrito.push({ id:pid, nombre:nombre, precio:precio, moneda:moneda, qty:1 });
+    save();
+    renderCart();
+    showToast('✅ ' + nombre + ' agregado');
+  }
+
+  function updateQty(pid, delta){
+    var item = carrito.find(function(i){ return i.id === pid; });
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) carrito = carrito.filter(function(i){ return i.id !== pid; });
+    save();
+    renderCart();
+  }
+
+  function removeFromCart(pid){
+    carrito = carrito.filter(function(i){ return i.id !== pid; });
+    save();
+    renderCart();
+  }
+
+  /* ⭐ CORREGIDO: Mensaje con totales separados por moneda + saltos de línea reales */
+  function generarMensaje(){
+    if (carrito.length === 0) return '';
+    var lines = ['Hola, quiero hacer un pedido en ' + NOMBRE_NEGOCIO + ':', ''];
+    carrito.forEach(function(item){
+      lines.push('• ' + item.qty + 'x ' + item.nombre + ' (' + fmtPrecio(item.precio * item.qty, item.moneda) + ')');
+    });
+    lines.push('');
+    var totales = totalPorMoneda();
+    var monedas = Object.keys(totales);
+    monedas.forEach(function(m){
+      lines.push('💰 *Total ' + m + ': ' + fmtPrecio(totales[m], m) + '*');
+    });
+    var notes = (cartNotes.value || '').trim();
+    if (notes) {
+      lines.push('');
+      lines.push('📝 Notas: ' + notes);
+    }
+    lines.push('');
+    lines.push('_Pedido enviado desde Tranqui_');
+    return lines.join('\n');
+  }
+
+  function enviarPedido(){
+    if (carrito.length === 0) return;
+    var msg = generarMensaje();
+    var url;
+    if (CONTACTO_ES_WA) {
+      url = 'https://wa.me/' + CONTACTO_NUMERO + '?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+    } else {
+      url = 'sms:' + CONTACTO_NUMERO + '?body=' + encodeURIComponent(msg);
+      window.location.href = url;
+    }
+    carrito = [];
+    save();
+    renderCart();
+    cerrarCart();
+    showToast('✅ Pedido enviado. ¡Gracias!');
+  }
+
+  function abrirCart(){ cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function cerrarCart(){ cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); document.body.style.overflow=''; }
+
+  fabCart.addEventListener('click', abrirCart);
+  cartClose.addEventListener('click', cerrarCart);
+  cartOverlay.addEventListener('click', cerrarCart);
+  btnSend.addEventListener('click', enviarPedido);
+
+  cartBody.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var item = btn.closest('.cart-item');
+    if (!item) return;
+    var pid = item.getAttribute('data-pid');
+    var act = btn.getAttribute('data-act');
+    if (act === 'inc') updateQty(pid, 1);
+    else if (act === 'dec') updateQty(pid, -1);
+    else if (act === 'rm') removeFromCart(pid);
+  });
   
 
   document.addEventListener('click', function(e){
