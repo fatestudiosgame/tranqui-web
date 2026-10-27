@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://fatestudiosgame.github.io/tranqui-web/og-image.png">
 <link rel="canonical" href="https://fatestudiosgame.github.io/tranqui-web/p/8tXheEYJHGViV7Km5MA9/">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23FF9800'/><stop offset='1' stop-color='%23FF5722'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><path transform='scale(2.6667)' fill='%23ffffff' d='M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z'/></svg>"><link rel="icon" type="image/png" href="https://fatestudiosgame.github.io/tranqui-web/og-image.png"><link rel="apple-touch-icon" href="https://fatestudiosgame.github.io/tranqui-web/og-image.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://fatestudiosgame.github.io/tranqui-web/p/8tXheEYJHGViV7Km5MA9/#negocio","name":"Selección del Mercader","description":"Tienda Online con productos de excelente calidad","url":"https://fatestudiosgame.github.io/tranqui-web/p/8tXheEYJHGViV7Km5MA9/","image":"https://fatestudiosgame.github.io/tranqui-web/og-image.png","currenciesAccepted":"CUP","paymentAccepted":"Transferencia bancaria, Transfermóvil","telephone":"+53 53183193","address":{"@type":"PostalAddress","addressLocality":"Camagüey","addressRegion":"Camagüey","addressCountry":"CU"},"geo":{"@type":"GeoCoordinates","latitude":21.400809881329625,"longitude":-77.91078874232689}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://fatestudiosgame.github.io/tranqui-web/p/8tXheEYJHGViV7Km5MA9/#negocio","name":"Selección del Mercader","description":"Tienda Online con productos de excelente calidad","url":"https://fatestudiosgame.github.io/tranqui-web/p/8tXheEYJHGViV7Km5MA9/","image":"https://fatestudiosgame.github.io/tranqui-web/og-image.png","currenciesAccepted":"CUP","paymentAccepted":"Transferencia bancaria, Transfermóvil","telephone":"+53 53183193","address":{"@type":"PostalAddress","addressLocality":"Camagüey","addressRegion":"Camagüey","addressCountry":"CU"},"geo":{"@type":"GeoCoordinates","latitude":21.400809881329625,"longitude":-77.91078874232689},"makesOffer":[{"@type":"Offer","name":"Aceite de Soya","price":"2600","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Salchicha de Pollo","price":"140","priceCurrency":"CUP","availability":"https://schema.org/InStock"},{"@type":"Offer","name":"Huevo de Gallina Frescos","price":"140","priceCurrency":"CUP","availability":"https://schema.org/InStock"}]}</script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--primary:#FF5722;--wa:#25D366;--card:#fff;--text:#1a1a1a;--muted:#666;--border:#f0f0f0;--shadow:0 4px 16px rgba(0,0,0,.06)}
@@ -167,7 +167,70 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
     <button type="button" class="btn btn-share" id="btnShare">🔗 Compartir este negocio</button>
   </div>
 
-  <div id="live-catalogo-wrap"></div>
+  <div id="live-catalogo-wrap">
+    <div class="searchbar">
+      <span class="sicon">🔍</span>
+      <input id="searchInput" type="search" placeholder="Buscar producto... (ej: leche, café)" autocomplete="off" aria-label="Buscar producto">
+      <button type="button" class="sclear" id="searchClear" style="display:none" aria-label="Limpiar búsqueda">✕</button>
+    </div>
+    <div class="searchcount" id="searchCount" style="display:none"></div>
+    <div id="searchResults" style="display:none"></div>
+    <section class="catalogo" id="catalogWrap"><h2>📋 Catálogo</h2><div class="cat"><button type="button" class="cat-header" aria-expanded="true"><span class="cat-name">Alimentos</span><span class="cat-count">3</span><span class="cat-arrow">▼</span></button><div class="cat-body">
+        <div class="producto">
+          <div class="prod-img"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1793064033/tranqui/negocios/8tXheEYJHGViV7Km5MA9/catalogo/kecpchziitxpxp1ocgfc.jpg?w=800&amp;q=75&amp;f=auto" alt="Aceite de Soya" loading="lazy"></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Aceite de Soya</div>
+            <div class="prod-desc">Aceite de soya de 900 ML</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">2 600 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="7bfVlEavJrXSKhvObGZy" data-pnombre="Aceite de Soya" data-pprecio="2600" data-pmoneda="CUP" aria-label="Agregar Aceite de Soya al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="7bfVlEavJrXSKhvObGZy" style="display:none">
+                <button type="button" class="sbtn" data-dec="7bfVlEavJrXSKhvObGZy">−</button>
+                <span class="sqty" data-q="7bfVlEavJrXSKhvObGZy">0</span>
+                <button type="button" class="sbtn" data-add="7bfVlEavJrXSKhvObGZy">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1793064221/tranqui/negocios/8tXheEYJHGViV7Km5MA9/catalogo/iesxht0ktulitdthecie.jpg?w=800&amp;q=75&amp;f=auto" alt="Salchicha de Pollo" loading="lazy"></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Salchicha de Pollo</div>
+            <div class="prod-desc">Salchicha de pollo de 340 g en formato de 10 unidades</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">140 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="oyVubLMVmkmb5aFtgO1g" data-pnombre="Salchicha de Pollo" data-pprecio="140" data-pmoneda="CUP" aria-label="Agregar Salchicha de Pollo al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="oyVubLMVmkmb5aFtgO1g" style="display:none">
+                <button type="button" class="sbtn" data-dec="oyVubLMVmkmb5aFtgO1g">−</button>
+                <span class="sqty" data-q="oyVubLMVmkmb5aFtgO1g">0</span>
+                <button type="button" class="sbtn" data-add="oyVubLMVmkmb5aFtgO1g">+</button>
+              </div>
+          </div>
+        </div>
+        <div class="producto">
+          <div class="prod-img"><img src="https://res.cloudinary.com/mucmrgi3/image/upload/v1793062022/tranqui/negocios/8tXheEYJHGViV7Km5MA9/catalogo/i0nolus5l52nyvuahnr9.jpg?w=800&amp;q=75&amp;f=auto" alt="Huevo de Gallina Frescos" loading="lazy"></div>
+          <div class="prod-info">
+            <div class="prod-nombre">Huevo de Gallina Frescos</div>
+            <div class="prod-desc">Huevo de Gallina cuidadosamente revisados</div>
+            <div class="prod-bottom">
+              <span class="prod-precio">140 CUP</span>
+              
+              <button type="button" class="btn-add" data-add="uSQiU1K9B9Ioz2Cre0fI" data-pnombre="Huevo de Gallina Frescos" data-pprecio="140" data-pmoneda="CUP" aria-label="Agregar Huevo de Gallina Frescos al carrito">+ Agregar</button>
+            </div>
+            
+              <div class="stepper" data-stepper="uSQiU1K9B9Ioz2Cre0fI" style="display:none">
+                <button type="button" class="sbtn" data-dec="uSQiU1K9B9Ioz2Cre0fI">−</button>
+                <span class="sqty" data-q="uSQiU1K9B9Ioz2Cre0fI">0</span>
+                <button type="button" class="sbtn" data-add="uSQiU1K9B9Ioz2Cre0fI">+</button>
+              </div>
+          </div>
+        </div></div></div></section>
+  </div>
 </main>
 
 <footer class="footer">
@@ -177,6 +240,25 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 
 <a class="fab" href="https://wa.me/53183193?text=Hola%2C%20vi%20tu%20negocio%20en%20Tranqui%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
 
+
+<button type="button" class="fab-cart hidden" id="fabCart" aria-label="Ver carrito">
+  🛒<span class="cart-badge" id="cartBadge">0</span>
+</button>
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>🛒 Tu pedido</h3>
+    <button class="cart-close" id="cartClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-footer">
+    <textarea class="cart-notes" id="cartNotes" rows="2" placeholder="Notas del pedido (opcional)"></textarea>
+    <div class="cart-total" id="cartTotal"></div>
+    <button class="btn-send btn-send-wa" id="btnSend" disabled>
+      💬 Enviar pedido por WhatsApp
+    </button>
+  </div>
+</aside>
 
 
 <div class="toast" id="toast"></div>
@@ -188,7 +270,7 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
   var ID = "8tXheEYJHGViV7Km5MA9";
   var BASE = "https://fatestudiosgame.github.io/tranqui-web";
   var WA = "53183193";
-  var PRODUCTOS = {};
+  var PRODUCTOS = {"7bfVlEavJrXSKhvObGZy":{"n":"Aceite de Soya","p":2600,"m":"CUP","d":"Aceite de soya de 900 ML","i":"https://res.cloudinary.com/mucmrgi3/image/upload/v1793064033/tranqui/negocios/8tXheEYJHGViV7Km5MA9/catalogo/kecpchziitxpxp1ocgfc.jpg?w=800&q=75&f=auto","a":false,"c":"Alimentos"},"oyVubLMVmkmb5aFtgO1g":{"n":"Salchicha de Pollo","p":140,"m":"CUP","d":"Salchicha de pollo de 340 g en formato de 10 unidades","i":"https://res.cloudinary.com/mucmrgi3/image/upload/v1793064221/tranqui/negocios/8tXheEYJHGViV7Km5MA9/catalogo/iesxht0ktulitdthecie.jpg?w=800&q=75&f=auto","a":false,"c":"Alimentos"},"uSQiU1K9B9Ioz2Cre0fI":{"n":"Huevo de Gallina Frescos","p":140,"m":"CUP","d":"Huevo de Gallina cuidadosamente revisados","i":"https://res.cloudinary.com/mucmrgi3/image/upload/v1793062022/tranqui/negocios/8tXheEYJHGViV7Km5MA9/catalogo/i0nolus5l52nyvuahnr9.jpg?w=800&q=75&f=auto","a":false,"c":"Alimentos"}};
   var CONTACTO_NUMERO = "53183193";
   var CONTACTO_ES_WA = true;
   var NOMBRE_NEGOCIO = "Selección del Mercader";
@@ -353,10 +435,185 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
   });
 
   
-  function renderCart(){}
-  function addToCart(pid, nombre, precio, moneda){
-    showToast('⚠️ Carrito no disponible');
+  /* === CARRITO (con soporte multi-moneda) === */
+  function qty(id){
+    var item = carrito.find(function(i){ return i.id === id; });
+    return item ? item.qty : 0;
   }
+  function totalItems(){ return carrito.reduce(function(s,i){ return s + i.qty; }, 0); }
+
+  /* ⭐ NUEVO: Total agrupado por moneda */
+  function totalPorMoneda(){
+    var totales = {};
+    carrito.forEach(function(i){
+      var m = i.moneda || 'CUP';
+      if (!totales[m]) totales[m] = 0;
+      totales[m] += i.qty * i.precio;
+    });
+    return totales;
+  }
+
+  function save(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito)); } catch(e){} }
+
+  var fabCart = document.getElementById('fabCart');
+  var cartBadge = document.getElementById('cartBadge');
+  var cartDrawer = document.getElementById('cartDrawer');
+  var cartOverlay = document.getElementById('cartOverlay');
+  var cartClose = document.getElementById('cartClose');
+  var cartBody = document.getElementById('cartBody');
+  var cartTotal = document.getElementById('cartTotal');
+  var cartNotes = document.getElementById('cartNotes');
+  var btnSend = document.getElementById('btnSend');
+
+  function actualizarFab(){
+    var count = totalItems();
+    if (count > 0) {
+      fabCart.classList.remove('hidden');
+      cartBadge.textContent = count;
+      cartBadge.classList.remove('pop');
+      void cartBadge.offsetWidth;
+      cartBadge.classList.add('pop');
+    } else {
+      fabCart.classList.add('hidden');
+    }
+    btnSend.disabled = count === 0;
+  }
+
+  function renderCart(){
+    document.querySelectorAll('.btn-add').forEach(function(b){
+      var id = b.getAttribute('data-add');
+      var ctrl = b.parentElement;
+      var st = ctrl ? ctrl.querySelector('[data-stepper="' + id + '"]') : null;
+      if (st) {
+        if (qty(id) > 0) { st.style.display = 'flex'; b.style.display = 'none'; }
+        else { st.style.display = 'none'; b.style.display = 'inline-block'; }
+      }
+    });
+    document.querySelectorAll('.sqty[data-q]').forEach(function(s){
+      s.textContent = qty(s.getAttribute('data-q'));
+    });
+    if (carrito.length === 0) {
+      cartBody.innerHTML = '<div class="cart-empty"><div class="cart-empty-icon">🛒</div><div>Tu carrito está vacío</div><div style="font-size:12px;margin-top:6px">Agrega productos del catálogo</div></div>';
+      cartTotal.innerHTML = '';
+      actualizarFab();
+      return;
+    }
+    var html = '';
+    carrito.forEach(function(item){
+      html += '<div class="cart-item" data-pid="' + escJs(item.id) + '">' +
+        '<div class="cart-item-info">' +
+          '<div class="cart-item-name">' + escJs(item.nombre) + '</div>' +
+          '<div class="cart-item-price">' + fmtPrecio(item.precio, item.moneda) + ' c/u</div>' +
+          '<div class="cart-item-controls">' +
+            '<button class="cart-qty-btn" data-act="dec">−</button>' +
+            '<span class="cart-qty">' + item.qty + '</span>' +
+            '<button class="cart-qty-btn" data-act="inc">+</button>' +
+            '<button class="cart-item-remove" data-act="rm" aria-label="Quitar">🗑️</button>' +
+          '</div>' +
+          '<div class="cart-item-subtotal">Subtotal: ' + fmtPrecio(item.precio * item.qty, item.moneda) + '</div>' +
+        '</div>' +
+      '</div>';
+    });
+    cartBody.innerHTML = html;
+
+    /* ⭐ NUEVO: Renderizar totales agrupados por moneda */
+    var totales = totalPorMoneda();
+    var monedas = Object.keys(totales);
+    var totalHtml = '';
+    monedas.forEach(function(m){
+      totalHtml += '<div class="cart-total-row">' +
+        '<span class="cart-total-label">Total ' + m + ':</span>' +
+        '<span class="cart-total-amount">' + fmtPrecio(totales[m], m) + '</span>' +
+      '</div>';
+    });
+    cartTotal.innerHTML = totalHtml;
+    actualizarFab();
+  }
+
+  function addToCart(pid, nombre, precio, moneda){
+    var existente = carrito.find(function(i){ return i.id === pid; });
+    if (existente) existente.qty++;
+    else carrito.push({ id:pid, nombre:nombre, precio:precio, moneda:moneda, qty:1 });
+    save();
+    renderCart();
+    showToast('✅ ' + nombre + ' agregado');
+  }
+
+  function updateQty(pid, delta){
+    var item = carrito.find(function(i){ return i.id === pid; });
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) carrito = carrito.filter(function(i){ return i.id !== pid; });
+    save();
+    renderCart();
+  }
+
+  function removeFromCart(pid){
+    carrito = carrito.filter(function(i){ return i.id !== pid; });
+    save();
+    renderCart();
+  }
+
+  /* ⭐ CORREGIDO: Mensaje con totales separados por moneda + saltos de línea reales */
+  function generarMensaje(){
+    if (carrito.length === 0) return '';
+    var lines = ['Hola, quiero hacer un pedido en ' + NOMBRE_NEGOCIO + ':', ''];
+    carrito.forEach(function(item){
+      lines.push('• ' + item.qty + 'x ' + item.nombre + ' (' + fmtPrecio(item.precio * item.qty, item.moneda) + ')');
+    });
+    lines.push('');
+    var totales = totalPorMoneda();
+    var monedas = Object.keys(totales);
+    monedas.forEach(function(m){
+      lines.push('💰 *Total ' + m + ': ' + fmtPrecio(totales[m], m) + '*');
+    });
+    var notes = (cartNotes.value || '').trim();
+    if (notes) {
+      lines.push('');
+      lines.push('📝 Notas: ' + notes);
+    }
+    lines.push('');
+    lines.push('_Pedido enviado desde Tranqui_');
+    return lines.join('\n');
+  }
+
+  function enviarPedido(){
+    if (carrito.length === 0) return;
+    var msg = generarMensaje();
+    var url;
+    if (CONTACTO_ES_WA) {
+      url = 'https://wa.me/' + CONTACTO_NUMERO + '?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank');
+    } else {
+      url = 'sms:' + CONTACTO_NUMERO + '?body=' + encodeURIComponent(msg);
+      window.location.href = url;
+    }
+    carrito = [];
+    save();
+    renderCart();
+    cerrarCart();
+    showToast('✅ Pedido enviado. ¡Gracias!');
+  }
+
+  function abrirCart(){ cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function cerrarCart(){ cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); document.body.style.overflow=''; }
+
+  fabCart.addEventListener('click', abrirCart);
+  cartClose.addEventListener('click', cerrarCart);
+  cartOverlay.addEventListener('click', cerrarCart);
+  btnSend.addEventListener('click', enviarPedido);
+
+  cartBody.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-act]');
+    if (!btn) return;
+    var item = btn.closest('.cart-item');
+    if (!item) return;
+    var pid = item.getAttribute('data-pid');
+    var act = btn.getAttribute('data-act');
+    if (act === 'inc') updateQty(pid, 1);
+    else if (act === 'dec') updateQty(pid, -1);
+    else if (act === 'rm') removeFromCart(pid);
+  });
   
 
   document.addEventListener('click', function(e){
