@@ -148,14 +148,21 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 <header class="header">
   <div class="header-inner">
     <div class="avatar" id="live-avatar">🏪</div>
-    <div id="live-badge"><span class="badge-vip">VIP PRUEBA</span></div>
+    <div id="live-badge"><span class="badge-vip" style="background:#888;color:#fff;border-color:#555">VIP EXPIRADO</span></div>
     <h1 class="nombre" id="live-nombre">Zona Wifi</h1>
     <span class="cat-chip" id="live-categoria">🏷️ recargas</span>
   </div>
 </header>
 
 <main class="container">
-  <div id="live-banner"></div>
+  <div id="live-banner">
+<div class="expirado-banner">
+  <span class="expirado-icon">⚠️</span>
+  <div>
+    <strong>Este negocio ya no es VIP activo</strong>
+    <div class="expirado-sub">Su información permanece disponible como referencia.</div>
+  </div>
+</div></div>
   <section class="card"><div class="descripcion" id="live-descripcion">Prueba</div></section>
   <div id="live-horario-wrap"></div>
   <div id="live-galeria"></div>
@@ -168,7 +175,7 @@ h2{font-size:17px;margin-bottom:10px;color:var(--primary);font-weight:800}
 </main>
 
 <footer class="footer">
-  <p>Este negocio <span id="live-estado">está</span> en <a href="https://fatestudiosgame.github.io/tranqui-web" target="_blank" rel="noopener">Tranqui</a></p>
+  <p>Este negocio <span id="live-estado">estuvo</span> en <a href="https://fatestudiosgame.github.io/tranqui-web" target="_blank" rel="noopener">Tranqui</a></p>
   <p><a href="https://fatestudiosgame.github.io/tranqui-web/p/">Ver todos los negocios VIP</a></p>
 </footer>
 
